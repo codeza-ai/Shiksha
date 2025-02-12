@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 // import Footer from '../components/Footer';
 
 const Home = () => {
@@ -7,26 +8,45 @@ const Home = () => {
             <div>
                 <Header />
             </div>
-            <div className='w-full pt-16'>
-                <div id="hero" className='w-full h-screen flex justify-center items-center'>
-                    <h1>Hey there</h1>
+            <div className='w-full pt-24'>
+                <div id="hero" className='w-full h-fit flex justify-center items-center p-10 gap-10'>
+                    <div className='w-1/3 h-full flex justify-center items-center'>
+                        <div className='text-black text-7xl text-left'>
+                            <h1><del className='text-red-700'>No</del> more</h1>
+                            <h1><del className='text-red-700'>empty</del></h1>
+                            <h1>classrooms <span className='text-green-400'>!</span></h1>
+                            <div className='pt-5 w-full'>
+                                <button className='bg-blue-500 text-xl text-white p-3 w-fit h-fit rounded-xl'>Register</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='w-2/3 h-auto rounded-2xl overflow-hidden'>
+                        <img src="./hero-image.jpg" alt="hero-image" className='w-full h-full'/>
+                    </div>
                 </div>
                 <div className='flex justify-center items-center w-full h-fit pt-5 p-4'>
                     <div className='w-1/2 p-4 text-xl'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sed recusandae dignissimos repudiandae. Impedit, voluptatibus animi! Id vero facilis unde fuga reprehenderit dolores neque, consequatur suscipit molestiae necessitatibus fugiat. Illum dignissimos quas minus placeat sapiente doloremque porro voluptas eligendi ducimus?
+                        <p className='w-3/4'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sed recusandae dignissimos repudiandae. Impedit, voluptatibus animi! Id vero facilis unde fuga reprehenderit dolores neque, consequatur suscipit molestiae necessitatibus fugiat. Illum dignissimos quas minus placeat sapiente doloremque porro voluptas eligendi ducimus?
+                        </p>
                     </div>
                     <div className='w-1/2 p-4'>
-                        
+                        <img src="./girl-on-board.jpg" alt="Girl writing on board" className='w-full rounded-2xl' />
                     </div>
                 </div>
                 <div className='flex justify-center items-center w-full h-fit pt-5 p-4'>
                     <div className='w-1/2 p-4'>
-                        
+                        <img src="./students.jpg" alt="Girl writing on board" className='w-full rounded-2xl' />   
                     </div>
                     <div className='w-1/2 p-4 text-xl'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sed recusandae dignissimos repudiandae. Impedit, voluptatibus animi! Id vero facilis unde fuga reprehenderit dolores neque, consequatur suscipit molestiae necessitatibus fugiat. Illum dignissimos quas minus placeat sapiente doloremque porro voluptas eligendi ducimus?
+                        <p className='w-3/4'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sed recusandae dignissimos repudiandae. Impedit, voluptatibus animi! Id vero facilis unde fuga reprehenderit dolores neque, consequatur suscipit molestiae necessitatibus fugiat. Illum dignissimos quas minus placeat sapiente doloremque porro voluptas eligendi ducimus?
+                        </p>
                     </div>
                 </div>
+            </div>
+            <div>
+                <Footer/>
             </div>
         </>
     )

@@ -1,15 +1,16 @@
-import TestNav from "../components/TestNav";
+// import TestNav from "../components/TestNav";
 // import Question from "../components/Question";
-
+import { useParams } from "react-router-dom";
 const QuestionPage = () =>{
-    return <div className="flex w-full">
-        <div className="w-1/4">
-            <TestNav />
+    const { sectionName, qNumber } = useParams();
+
+    return (
+        <div>
+            <h1>Section: {sectionName}</h1>
+            <h2>Question Number: {qNumber}</h2>
+            {/* Fetch and display the relevant question here */}
         </div>
-        <div className="w-3/4">
-            {/* <Question /> */}
-        </div>
-    </div>
+    );
 }
 
 export default QuestionPage;
