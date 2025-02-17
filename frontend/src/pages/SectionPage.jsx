@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 const SectionPageInfo = {
     "A": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores numquam, libero quod ab laborum maxime! Sequi molestiae quod fugiat illo?",
     "B": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores numquam, libero quod ab laborum maxime! Sequi molestiae quod fugiat illo?",
@@ -16,6 +15,16 @@ const sectionImage = {
 
 const SectionPage = () => {
     const { sectionName } = useParams(); 
+    if( sectionName > 'D' || sectionName < 'A' ){
+        window.location.href = '/notfound';
+    };
+
+    function goBack(){
+        window.history.back();
+    };
+    function startQuiz(){
+        window.location.href = `/test/section/${sectionName}/question/1`;
+    };
 
     return (
         <div className="w-full h-screen bg-gray-100 flex justify-evenly items-center">
@@ -29,8 +38,8 @@ const SectionPage = () => {
                     </div>
                 </div>
                 <div className="w-full flex justify-center gap-5">
-                    <Link className="text-white bg-black hover:bg-gray-800 p-2 rounded-md">Go Back</Link>
-                    <Link to="/test/section/B" className="text-white bg-blue-500 hover:bg-blue-700 p-2 rounded-md">Start Quiz</Link>
+                    <button className="text-white bg-black hover:bg-gray-800 p-2 rounded-md" onClick={()=>goBack()}>Go Back</button>
+                    <button className="text-white bg-blue-500 hover:bg-blue-700 p-2 rounded-md" onClick={()=>startQuiz()}>Start Quiz</button>
                 </div>
             </div>
             <div className="w-1/3 h-2/3 flex justify-center items-center">
