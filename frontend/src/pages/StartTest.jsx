@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const StartTest = ()=> {
+    useEffect(()=>{
+            //Check session
+    },[]);
     return (
     <div className="w-full bg-gray-100 h-screen text-gray-900 flex flex-col justify-center items-center">
         <div className="mb-8">

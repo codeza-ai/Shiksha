@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 const SectionPageInfo = {
     "A": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores numquam, libero quod ab laborum maxime! Sequi molestiae quod fugiat illo?",
@@ -26,6 +27,10 @@ const SectionPage = () => {
         window.location.href = `/test/section/${sectionName}/question/1`;
     };
 
+    useEffect(() => {
+        //Check session
+        //Check section
+    }, []);
     return (
         <div className="w-full h-screen bg-gray-100 flex justify-evenly items-center">
             <div className="w-1/3 bg-white p-5 gap-10 h-2/3 flex flex-col justify-around rounded-2xl text-center">

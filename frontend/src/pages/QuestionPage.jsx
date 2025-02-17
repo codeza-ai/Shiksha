@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Question from "../components/Question";
 import TestNav from "../components/TestNav";
+import { useEffect } from "react";
 // import axios from "axios";
 
 const QuestionPage = () =>{
@@ -32,6 +33,12 @@ const QuestionPage = () =>{
             // }
         console.log(`Section ${sectionName} completed in ${timeTaken} seconds`);
     }
+
+    useEffect(()=>{
+        //Check session
+        //Check section
+
+    },[]);
     return (
         <div className="flex">
             <div className="w-1/4 h-screen bg-gray-200">
