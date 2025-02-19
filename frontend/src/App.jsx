@@ -5,6 +5,7 @@ import SectionPage from "./pages/SectionPage";
 import QuestionPage from "./pages/QuestionPage";
 import Register from './pages/Register'
 import Login from './pages/Login'
+import About from './pages/About'
 import NotFound from './pages/NotFound'
 import FinishTest from './pages/FinishTest'
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/test" element={<StartTest />} />
         <Route path="/test/section/:sectionName" element={<SectionPage />} />

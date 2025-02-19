@@ -14,7 +14,7 @@ const TestNav = ({ onSubmit }) => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-lg max-w-md mx-auto text-center h-full flex flex-col">
+    <div className="bg-white p-4 rounded-lg shadow-lg mx-auto max-w-sm text-center w-full h-full flex flex-col">
       <h3 className="text-4xl font-bold text-black mt-10 mb-6">Section {sectionName}</h3>
 
       {/* Timer Display */}
@@ -23,7 +23,7 @@ const TestNav = ({ onSubmit }) => {
       </div>
 
       {/* Question Navigation */}
-      <div className="grid grid-cols-5 gap-2 mb-4">
+      <div className="grid grid-cols-5 gap-3 mb-4 w-full">
         {[...Array(totalQuestions)].map((_, index) => (
           <button
             key={index}

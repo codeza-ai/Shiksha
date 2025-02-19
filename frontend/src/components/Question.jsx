@@ -1,37 +1,39 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Option from "./Option";
-import { useParams } from "react-router-dom";
 
 const Question = ({ qnumber, question, options }) => {
     const [selectedOption, setSelectedOption] = useState(null);
-    const {sectionName} = useParams();
 
-    useEffect(()=>{
+    useEffect(() => {
         setSelectedOption(null);
 
-        // If user has already answered this question, set the selected option
-        const savedAnswer = localStorage.getItem(`q${qnumber}`);
-        if(savedAnswer){
-            setSelectedOption(parseInt(savedAnswer));
+        // Retrieve stored answers
+        const storedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
+        const currentAnswer = storedAnswers.find(answer => answer.qNumber === qnumber);
+
+        if (currentAnswer) {
+            setSelectedOption(currentAnswer.answer - 1);
         }
     }, [qnumber]);
 
     const handleSelect = (index) => {
         setSelectedOption(index);
-        // Set the selected option in local storage with section and question number
+
+        // Update localStorage
         const storedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
-        const updatedAnswers = storedAnswers.filter(answer => answer.qnumber !== qnumber);
-        updatedAnswers.push(
-            {
-                qNumber: parseInt((sectionName.charCodeAt(0) - 65) * 10) + parseInt(qnumber), 
-                answer: index+ 1
-            });
+        const updatedAnswers = storedAnswers.map(answer =>
+            answer.qNumber === qnumber ? { qNumber: qnumber, answer: index + 1 } : answer
+        );
+
+        const isNewAnswer = !storedAnswers.some(answer => answer.qNumber === qnumber);
+        if (isNewAnswer) updatedAnswers.push({ qNumber: qnumber, answer: index + 1 });
+
         localStorage.setItem("answers", JSON.stringify(updatedAnswers));
     };
 
     return (
-        <div className="p-10 w-full bg-white rounded-2xl text-2xl">
+        <div className="p-10 w-full bg-white rounded-2xl text-2xl shadow-lg">
             <div id="question" className="mb-10 flex gap-2">
                 <div className="font-bold">Q{qnumber}:</div>
                 <div className="">{question}</div>
