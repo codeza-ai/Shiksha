@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Option from "./Option";
+import { useParams } from "react-router-dom";
 
 const Question = ({ qnumber, question, options }) => {
     const [selectedOption, setSelectedOption] = useState(null);
+    const {sectionName} = useParams();
 
     useEffect(()=>{
         setSelectedOption(null);
@@ -20,7 +22,11 @@ const Question = ({ qnumber, question, options }) => {
         // Set the selected option in local storage with section and question number
         const storedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
         const updatedAnswers = storedAnswers.filter(answer => answer.qnumber !== qnumber);
-        updatedAnswers.push({ qnumber, selectedOption: index+ 1});
+        updatedAnswers.push(
+            {
+                qNumber: parseInt((sectionName.charCodeAt(0) - 65) * 10) + parseInt(qnumber), 
+                answer: index+ 1
+            });
         localStorage.setItem("answers", JSON.stringify(updatedAnswers));
     };
 

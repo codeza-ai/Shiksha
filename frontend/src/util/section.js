@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const checkSection = async(sectionName)=>{
-    const userId = document.cookie.userId;
+    const userId = localStorage.getItem("userId");
+    const URL = import.meta.env.VITE_REACT_API_URL + "/api/section";
 
     if(!userId){
         return false;
@@ -11,16 +12,11 @@ const checkSection = async(sectionName)=>{
             userId,
             sectionName
         });
-        if(res.isValid == "true"){
-            return true;
-        }
-        return false;
+        return res.data.completed;
     }catch(err){
         console.error("Can't validate section completion");
         console.log(err);
     }
 };
 
-export default {
-    checkSection
-}
+export default checkSection;

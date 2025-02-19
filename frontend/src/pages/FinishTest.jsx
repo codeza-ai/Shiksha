@@ -1,13 +1,22 @@
 import { useEffect } from "react";
+import checkSession from "../util/session";
+import logout from "../util/logout";
 
 const FinishTest =()=>{
 
-    function deleteSession(){
-        //Deletes the cookies data
-        window.location.href = "/";
+    async function deleteSession(){
+        await logout();
+    }
+    async function redirect() {
+        let session = await checkSession();
+        console.log("Session on - " + session);
+        if (!session) {
+            window.location.href = "/login";
+        }
     }
     useEffect(()=>{
-        //Check session
+        // Check session
+        redirect();
     },[]);
     return (
         <div className="w-full h-screen bg-white flex flex-col items-center justify-center">

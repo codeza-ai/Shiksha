@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -15,17 +16,19 @@ const Home = () => {
                             <h1><del className='text-red-700'>empty</del></h1>
                             <h1>classrooms <span className='text-green-400'>!</span></h1> */}
                         <div className='mt-5 w-full flex h-fit justify-center items-center'>
-                            <button className='inline-flex items-center justify-center px-8 py-4
-                        text-lg font-bold text-white
-                        bg-gradient-to-r from-blue-500 to-blue-700
-                        rounded-lg
-                        drop-shadow-md
-                        transform-gpu
-                        hover:rotate-[1deg] hover:scale-105
-                        hover:skew-x-1
-                        transition-all duration-300
-                        shadow-lg hover:shadow-xl'>Register Now
-                            </button>
+                            <Link 
+                                to = "/register"
+                                className='inline-flex items-center justify-center px-8 py-4
+                                text-lg font-bold text-white
+                                bg-gradient-to-r from-blue-500 to-blue-700
+                                rounded-lg
+                                drop-shadow-md
+                                transform-gpu
+                                hover:rotate-[1deg] hover:scale-105
+                                hover:skew-x-1
+                                transition-all duration-300
+                                shadow-lg hover:shadow-xl'
+                            >Register Now</Link>
                         </div>
                     </div>
                     <div className='w-2/3 h-auto rounded-2xl overflow-hidden'>

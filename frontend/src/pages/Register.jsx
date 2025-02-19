@@ -1,38 +1,43 @@
 import {Link} from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
+import checkSession from "../util/session";
 
 const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let URL ="https://cognitiveskills.onrender.com/api/v1/signup";
-        // let URL = process.env.BASE_URL;
+        let URL = import.meta.env.VITE_REACT_API_URL + "/api/signup";
         let data = {
             "name": e.target["full-name"].value,
             "mobile": parseInt(e.target["mobile"].value),
             "age": parseInt(e.target["age"].value),
             "date_of_birth": e.target["dob"].value,
             "standard": parseInt(e.target["class"].value),
-            "school": e.target["school"].value,
-            "created_at": ""
+            "school": e.target["school"].value
         }
         console.log(data);
         try {
             const res = await axios.post(URL, data);
             if(res.status === 200){
+                alert("Registration succesful. Login to start the test.");
                 window.location.href = "/login";
-            }else{
-                alert("Something went wrong, couldn't register");
             }
-            // const sessionId = response.data.sessionId;
-            // const userId = response.data.userId;
+            alert(res.message);
         }catch(err){
             console.log(err);
         }
     }
+    async function redirect(){
+        let session = await checkSession();
+        console.log("Session on - " + session);
+        if (session) {
+            alert("You have already logged in. Start the test.");
+            window.location.href = "/test";
+        }
+    }
     useEffect(()=>{
-            //Check session    
+        redirect();  
     },[]);
     return (
         <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">

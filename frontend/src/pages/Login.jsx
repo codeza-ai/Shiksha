@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
+import checkSession from "../util/session";
 
 const Register = () => {
     async function handleSubmit(e){
         e.preventDefault();
-        let URL = "https://cognitiveskills.onrender.com/api/v1/login";
-        // let URL = process.env.BASE_URL;
+        let URL = import.meta.env.VITE_REACT_API_URL + "/api/login";
+        
         let data = {
             "name": e.target["full-name"].value,
             "mobile": parseInt(e.target["mobile"].value),
@@ -14,25 +15,32 @@ const Register = () => {
         }
         try {
             const res = await axios.post(URL, data);
-            console.log(res.message);
-            const sessionId = res.data.sessionId;
-            const userId = res.data.user.userId;
+            const response = res.data;
+            // console.log(response);
+            //Store userId and sessionId in local storage
+            localStorage.setItem("userId", response.user.user_id);
+            localStorage.setItem("sessionId", response.session_id);
 
-            //Store userId and sessionId in cookies
-            document.cookie = `userId=${userId}`;
-            document.cookie = `sessionId=${sessionId}`;
+            alert(response.message);
             if(res.status === 200){
-                alert("Login successful");
-            }else{
-                alert("Something went wrong, couldn't login");
+                window.location.href = "/test";
             }
         }catch(err){
             console.log(err);
         }
     }
 
+    async function redirect(){
+        let session = await checkSession();
+        console.log(session);
+        if (session) {
+            alert("You have already logged in. Start the test.");
+            window.location.href = "/test";
+        }
+    }
+
     useEffect(()=>{
-            //Check session    
+        redirect();
     },[]);
     return (
         <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
