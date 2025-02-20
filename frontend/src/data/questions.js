@@ -118,76 +118,76 @@ const questions = [
     number: 21,
     question:
       "Which one of the figures in the boxes on the right completes the analogy?",
-    questionImage: "section3/question1.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question1.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 22,
     question:
       "Which one of the figures in the boxes on the right is the missing figure?",
-    questionImage: "section3/question2.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question2.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 23,
     question:
       "Work out the code for the Figures 1, 2 and 3, and then decide which box (A, B, C or D) has the correct code for Figure 4",
-    questionImage: "section3/question3.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question3.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 24,
     question:
       "Which one of the figures in the boxes on the right is the missing figure?",
-    questionImage: "section3/question4.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question4.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 25,
     question:
       "The large square on the left of the page contains smaller squares that form a pattern. Choose one of the four shapes that will replace the question mark to complete the pattern.",
-    questionImage: "section3/question5.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question5.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 26,
     question:
       "Which one of the figures in the boxes on the right is the missing figure?",
-    questionImage: "section3/question6.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question6.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 27,
     question:
       "Which one of the figures in the boxes on the right is the missing figure?",
-    questionImage: "section3/question7.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question7.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 28,
     question:
       "Choose the alternative which is closely resembles the mirror image of the given combination.",
-    questionImage: "section3/question8.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question8.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 29,
     question:
       "How many dots lie opposite to the face having three dots, when the given figure is folded to form a cube?",
-    questionImage: "section3/question9.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question9.png",
+    options: ["2", "4", "5", "6"],
   },
   {
     number: 30,
     question:
       "The large square on the left of the page contains smaller squares that form a pattern. Choose one of the four shapes that will replace the question mark to complete the pattern.",
-    questionImage: "section3/question10.png",
-    options: ["Delhi", "Mumbai", "Chennai", "Kolkata"],
+    questionImage: "/section3/question10.png",
+    options: ["A", "B", "C", "D"],
   },
   {
     number: 31,
     question: "Which of the following sentences is grammatically correct?",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: [
       "Aarav seen an old man carrying a bag.",
       "Aarav was seeing an old man carrying a bag.",
@@ -199,20 +199,20 @@ const questions = [
     number: 32,
     question:
       "Identify the correct past tense form of the verb in the sentence: Aarav ___ (help) the old man with his bag.",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: ["help", "helped", "helping", "helps"],
   },
   {
     number: 33,
     question:
       "Which word is an adjective in this sentence? Aarav happily took the shiny coin.",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: ["took", "happily", "shiny", "coin"],
   },
   {
     number: 34,
     question: "What did Aarav do when he saw the old man?",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: [
       "Ignored him",
       "Helped him carry his bag",
@@ -223,13 +223,13 @@ const questions = [
   {
     number: 35,
     question: "What special gift did the old man give Aarav?",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: ["A bag of gold", "A shiny coin", "A magic book", "A toy"],
   },
   {
     number: 36,
     question: "What happened to the coin when Aarav did good deeds?",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: [
       "It became dull",
       "It grew bigger",
@@ -241,7 +241,7 @@ const questions = [
     number: 37,
     question:
       "What did the rich merchant offer Aarav in exchange for the coin?",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: [
       "A new house",
       "A bag full of gold",
@@ -252,7 +252,7 @@ const questions = [
   {
     number: 38,
     question: "Why did Aarav refuse the merchant’s offer?",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: [
       "He didn't like gold",
       "He wanted more money",
@@ -263,7 +263,7 @@ const questions = [
   {
     number: 39,
     question: "After meeting Aarav, what decision did the merchant make?",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: [
       "He reconsidered his offer",
       "He changed his perspective on generosity",
@@ -274,7 +274,7 @@ const questions = [
   {
     number: 40,
     question: "The story teaches that:",
-    questionImage: "section4/question.png",
+    questionImage: "/section4/question.png",
     options: [
       "Some actions lead to unexpected results",
       "Choices shape how we see value",
