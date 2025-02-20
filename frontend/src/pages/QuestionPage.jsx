@@ -4,19 +4,29 @@ import TestNav from "../components/TestNav";
 import { useEffect, useState} from "react";
 import axios from "axios";
 import checkSession from "../util/session";
+import logout from "../util/logout";
 
 const QuestionPage = () =>{
     const { sectionName, qNumber } = useParams();
     const [questionNumber, setQuestionNumber] = useState(null);
     useEffect(() => {
-        if( parseInt(qNumber) < 1 || parseInt(qNumber) > 10 || sectionName > 'D'){
+        async function check() {
+            const curr = localStorage.getItem("currentSection");
+            if (curr != sectionName) {
+                window.history.back();
+            }
+            //Check session and section
+            const session = await checkSession();
+            if (!session) {
+                alert("Session expired. Please login again.");
+                await logout();
+            }
+        }
+        if (parseInt(qNumber) < 1 || parseInt(qNumber) > 10 || sectionName > 'D') {
             window.location.href = '/notfound';
         }
-        //Check session and section
-        if(!checkSession()){
-            window.location.href = "/login";
-        }
         setQuestionNumber(parseInt((sectionName.charCodeAt(0) - 65) * 10) + parseInt(qNumber))
+        check();
     }, [qNumber, sectionName]);
 
     function submitSection(timeTaken){
@@ -41,9 +51,16 @@ const QuestionPage = () =>{
                 answers: storedAnswers,
                 timeTaken: parseInt(timeTaken)
             });
+            console.log(response);
             localStorage.removeItem("answers");
             localStorage.removeItem("sectionTimer");
-            console.log(response.message);
+            localStorage.removeItem("currentSection");
+
+            if(sectionName === 'D'){
+                window.location.href = '/test/finish';
+            }else{
+                window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
+            }
         }catch(err){
             console.log(err);
         }
@@ -57,8 +74,6 @@ const QuestionPage = () =>{
             <div className="w-2/3 h-full text-gray-900 p-10 overflow-y-scroll">
                 <Question 
                     qnumber={parseInt(questionNumber)}
-                    question="What is the capital of India?"
-                    options={["Delhi", "Mumbai", "Kolkata", "Chennai"]}
                 />
             </div>
         </div>
