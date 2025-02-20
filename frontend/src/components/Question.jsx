@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Option from "./Option";
+import questions from "../data/questions";
 
-const Question = ({ qnumber, question, options }) => {
+const Question = ({ qnumber }) => {
     const [selectedOption, setSelectedOption] = useState(null);
 
     useEffect(() => {
@@ -34,12 +35,19 @@ const Question = ({ qnumber, question, options }) => {
 
     return (
         <div className="p-10 w-full bg-white rounded-2xl text-2xl shadow-lg">
-            <div id="question" className="mb-10 flex gap-2">
-                <div className="font-bold">Q{qnumber}:</div>
-                <div className="">{question}</div>
+            <div id="question" className="mb-10 flex flex-col gap-2">
+                <div className="flex flex-row">
+                    <div className="font-bold">Q{qnumber}:</div>
+                    <div className="">{questions[qnumber - 1].question}</div>
+                </div>
+                <div className="w-full">
+                {questions[qnumber - 1].questionImage && (
+                    <img src={questions[qnumber - 1].questionImage} alt="Question Image" />
+                )}
+                </div>
             </div>
             <div id="options" className="flex flex-col gap-2">
-                {options.map((op, index) => (
+                {questions[qnumber - 1].options.map((op, index) => (
                     <Option
                         key={index}
                         op={op}
@@ -54,8 +62,6 @@ const Question = ({ qnumber, question, options }) => {
 };
 
 Question.propTypes = {
-    question: PropTypes.string.isRequired,
-    options: PropTypes.array.isRequired,
     qnumber: PropTypes.number.isRequired,
 };
 

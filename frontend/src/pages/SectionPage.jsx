@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import checkSection from '../util/section';
-// import checkSession from '../util/session';
+import checkSection from '../util/section';
+import checkSession from '../util/session';
+import logout from '../util/logout';
 
 const SectionPageInfo = {
     "A": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores numquam, libero quod ab laborum maxime! Sequi molestiae quod fugiat illo?",
@@ -23,23 +24,31 @@ const SectionPage = () => {
         window.history.back();
     }
     function startQuiz(){
+        localStorage.setItem("currentSection", sectionName);
         window.location.href = `/test/section/${sectionName}/question/1`;
     }
 
     useEffect(() => {
+        async function check() {
+            const session = await checkSession();
+            if (!session) {
+                await logout();
+                alert("Session expired. Please login again.");
+            }
+            const section = await checkSection(sectionName);
+            if (!section) {
+                if (sectionName != 'D') {
+                    window.location.href = `/test/section/${sectionName + 1}`;
+                } else {
+                    window.location.href = "/test/finish";
+                }
+            }
+        }
+
         if (sectionName > 'D') {
             window.location.href = '/notfound';
         }
-        //Check session & section
-        // if (!checkSession()) {
-        //     window.location.href = "/login";
-        // } else if (!checkSection(sectionName)) {
-        //     if (sectionName != 'D') {
-        //         window.location.href = `/test/section/${sectionName + 1}`;
-        //     } else {
-        //         window.location.href = "/test/finish";
-        //     }
-        // }
+        check();
     }, [sectionName]);
     return (
         <div className="w-full h-screen bg-gray-100 flex justify-evenly items-center">
