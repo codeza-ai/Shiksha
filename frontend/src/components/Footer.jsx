@@ -1,25 +1,25 @@
 import {Link} from 'react-router-dom';
 const Footer = ()=>{
     return (
-        <footer className="w-full bg-gray-800 text-white text-xl p-5 mt-7 flex">
-            <div className="w-1/2 p-4 flex flex-col justify-center">
-                <h1 className='text-2xl'>Quick Links</h1>
-                <ul className='w-full h-full flex flex-col gap-3 justify-center'>
+        <footer className="w-full bg-gray-800 text-white text-xl p-5 flex md:flex-row flex-col gap-3">
+            <div className="md:w-1/2 w-full p-4 flex flex-col justify-center items-center">
+                <ul className='w-full h-full flex flex-col gap-3 justify-center items-center'>
                     <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
                     <li><Link to="/register">Register for test</Link></li>
+                    <li><a href="https://www.linkedin.com/in/darshan-odedara/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/darshan.odedara" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                 </ul>
             </div>
-            <div className="w-1/2 flex flex-col items-center justify-center">
+            <div className="md:w-1/2 w-full flex flex-col items-center justify-center">
                 <div className='w-full p-5 flex justify-center'>
-                    <img src="./logo.png" className="w-1/2" alt="Logo" />
+                    <img src="./logo.png" className="md:w-1/3 w-1/2" alt="Logo" />
                 </div>
                 <div>
-                    <p>© 2025 All Rights Reserved</p>
                     <div className="flex flex-col items-center mt-3">
                         <h1>Created by - </h1>
-                        <h2 className='text-3xl'>Darshan Odedara</h2>
+                        <h2 className='text-2xl font-bold'>Darshan Odedara</h2>
                     </div>
+                    <p>© 2025 All Rights Reserved</p>
                 </div>
             </div>
         </footer>

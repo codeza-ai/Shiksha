@@ -35,14 +35,14 @@ const SectionPage = () => {
         await logout();
         alert("Session expired. Please login again.");
       }
-      // const section = await checkSection(sectionName);
-      // if (!section) {
-      //   if (sectionName != "D") {
-      //     window.location.href = `/test/section/${sectionName + 1}`;
-      //   } else {
-      //     window.location.href = "/test/finish";
-      //   }
-      // }
+      const section = await checkSection(sectionName);
+      if (section) {
+        if (sectionName != "D") {
+          window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
+        } else {
+          window.location.href = "/test/finish";
+        }
+      }
     }
 
     if (sectionName > "D") {

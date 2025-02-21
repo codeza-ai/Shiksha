@@ -46,9 +46,6 @@ const QuestionPage = () => {
   }, [qNumber, sectionName]);
 
   const submitSection = async (timeTaken) => {
-    if (parseInt(qNumber) !== 10) {
-      return;
-    }
     const storedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
     const answeredQuestions = new Set(storedAnswers.map((answer) => answer.qNumber));
     if (answeredQuestions.size !== 10) {
@@ -69,14 +66,16 @@ const QuestionPage = () => {
         timeTaken: parseInt(timeTaken),
       });
       console.log(response);
-      localStorage.removeItem("answers");
-      localStorage.removeItem("sectionTimer");
-      localStorage.removeItem("currentSection");
+      if(response.status === 200) {
+        localStorage.removeItem("answers");
+        localStorage.removeItem("sectionTimer");
+        localStorage.removeItem("currentSection");
 
-      if (sectionName === "D") {
-        window.location.href = "/test/finish";
-      } else {
-        window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
+        if (sectionName === "D") {
+          window.location.href = "/test/finish";
+        } else {
+          window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
+        }
       }
     } catch (err) {
       console.log(err);

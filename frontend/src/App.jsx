@@ -15,7 +15,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    if ((location.pathname.startsWith("/test") || location.pathname.startsWith("/login"))&& window.innerWidth < 768) {
+    if (location.pathname.startsWith("/test")&& window.innerWidth < 768) {
       alert("This test can only be taken on a computer.");
       window.location.href = "/";
     }
