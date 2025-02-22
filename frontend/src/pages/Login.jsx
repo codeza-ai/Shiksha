@@ -16,19 +16,20 @@ const Register = () => {
         try {
             const res = await axios.post(URL, data);
             const response = res.data;
-            // console.log(response);
             //Store userId and sessionId in local storage
             if(response.test_completed){
                 alert("You have already completed the test. You can't take the test again.");
                 await logout();
                 return;
             }
-            localStorage.setItem("userId", response.user.user_id);
-            localStorage.setItem("sessionId", response.session_id);
-
-            alert(response.message);
+            
             if(res.status === 200){
+                localStorage.setItem("userId", response.user.user_id);
+                localStorage.setItem("sessionId", response.session_id);
+                alert(response.message);
                 window.location.href = "/test";
+            }else{
+                alert(response.detail);
             }
         }catch(err){
             console.log(err);
@@ -49,11 +50,13 @@ const Register = () => {
     return (
         <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
             <div className="mb-8">
-                <Link to="/"><img src="./logo-2.png" alt="Logo" className="h-28" /></Link>
+                <Link to="/"><img src="./logo-2.png" alt="Logo" className="h-24" /></Link>
             </div>
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-black text-center mb-6">Login to start test</h1>
+                <h1 className="text-2xl font-bold text-black text-center mb-3">Login to start test</h1>
                 <p className="text-red-500 text-center mb-3">{`(All the fields are mandatory)`}</p>
+                <hr />
+                <p className="text-center mb-6 mt-3">Not registered yet? <Link to="/register" className="text-blue-500">Register</Link></p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="flex flex-col space-y-2">
                         <label htmlFor="full-name" className="text-black font-medium">Full Name:</label>

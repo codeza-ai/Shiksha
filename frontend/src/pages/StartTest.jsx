@@ -7,11 +7,11 @@ const StartTest = ()=> {
     },[]);
 
     return (
-    <div className="w-full bg-gray-100 h-screen text-gray-900 flex flex-col justify-center items-center">
+    <div className="w-full bg-gray-100 pt-10 pb-10 text-gray-900 flex flex-col justify-center items-center">
         <div className="mb-8">
             <img src="./logo.png" alt="Logo" className="h-28" />
         </div>
-        <div id="instructions" className="bg-white p-4 rounded-lg shadow-lg text-center w-1/2 h-2/3">
+        <div id="instructions" className="bg-white p-4 rounded-lg shadow-lg text-center w-1/2 min-w-lg h-fit">
             <div className="w-full p-3">
                 <h2 className="text-4xl text-red-500">Instructions:</h2>
             </div>

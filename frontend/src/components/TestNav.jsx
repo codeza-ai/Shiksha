@@ -61,7 +61,6 @@ const TestNav = ({ onSubmit }) => {
         <button
           onClick={() => onSubmit(timeTaken)}
           className="bg-red-500 text-white py-2 px-4 rounded-md transition hover:bg-blue-600 w-full"
-          disabled={qNumber != 10}
         >
           Submit Section ✉️
         </button>

@@ -30,13 +30,18 @@ const Header = () => {
 
             {/* Navigation Menu */}
             <nav className={`md:flex gap-4 text-xl absolute md:static top-20 left-0 w-full bg-white md:bg-transparent md:w-auto flex-col md:flex-row shadow-lg md:shadow-none shadow-gray-500 ${menuOpen ? 'flex' : 'hidden'}`}>
-                <Link to="/" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500">Home</Link>
-                <Link to="/about" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500">About</Link>
-                <Link to="/register" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500">Register</Link>
+                <Link to="/" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">Home</Link>
+                <Link to="/about" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">About</Link>
                 {!loggedIn ? (
-                    <Link to="/login" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-green-500">Login</Link>
+                    <>
+                        <Link to="/register" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">Register</Link>
+                        <Link to="/login" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-green-600 hover:bg-green-200">Login</Link>
+                    </>
                 ) : (
-                    <button onClick={logout} className="p-1 m-1 md:m-4 bg-white rounded-sm text-red-500 hover:bg-red-200">Log out</button>
+                    <>
+                        <Link to="/test" className="p-1 m-1 md:m-4 bg-white rounded-sm text-green-600 hover:bg-green-200">Start Test</Link>
+                        <button onClick={logout} className="p-1 m-1 md:m-4 bg-white rounded-sm text-red-500 hover:bg-red-200">Log out</button>
+                    </>
                 )}
             </nav>
         </header>
