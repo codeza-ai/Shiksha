@@ -24,20 +24,20 @@ const Home = () => {
                         <img src="./hero-image.jpg" alt="hero-image" className='w-full' />
                     </div>
                 </div>
-                <div className='flex md:flex-row flex-col md:tex-lg text-2xl justify-center items-center w-full h-fit pt-5 p-4'>
+                <div className='flex md:flex-row flex-col md:tex-lg text-xl justify-center items-center w-full h-fit pt-5 p-4'>
                     <div className='md:w-1/2 w-full p-4'>
                         <img src="./girl-on-board.jpg" alt="Girl writing on board" className='w-full rounded-2xl' />
                     </div>
                     <div className='md:w-1/2 w-full p-4'>
                         <p className='w-3/4'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sed recusandae dignissimos repudiandae. Impedit, voluptatibus animi! Id vero facilis unde fuga reprehenderit dolores neque, consequatur suscipit molestiae necessitatibus fugiat. Illum dignissimos quas minus placeat sapiente doloremque porro voluptas eligendi ducimus?
+                            India&apos;s education system, despite its vast reach, continues to grapple with deep-seated inefficiencies and systemic inequities. The COVID-19 pandemic has only exacerbated these challenges, with the digital divide further marginalizing students from low-income families. The pandemic has also underscored the need for a more holistic approach to education, one that goes beyond rote learning and focuses on building critical thinking and problem-solving skills.
                         </p>
                     </div>
                 </div>
-                <div className='flex md:flex-row flex-col-reverse md:tex-lg text-2xl justify-center items-center w-full h-fit pt-5 p-4'>
+                <div className='flex md:flex-row flex-col-reverse md:tex-lg text-xl justify-center items-center w-full h-fit pt-5 p-4'>
                     <div className='md:w-1/2 w-full p-4'>
                         <p className='w-3/4'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis sed recusandae dignissimos repudiandae. Impedit, voluptatibus animi! Id vero facilis unde fuga reprehenderit dolores neque, consequatur suscipit molestiae necessitatibus fugiat. Illum dignissimos quas minus placeat sapiente doloremque porro voluptas eligendi ducimus?
+                            By leveraging technology and innovative teaching methods, we can create a more personalized and engaging learning experience for students. We can also empower teachers with the tools and resources they need to deliver high-quality instruction, regardless of their location or background. Our project seeks to disrupt this archaic framework by introducing an IoT-powered, ML-driven assessment system that evaluates students based on a single comprehensive test and recommends a personalized learning trajectory suited to their individual strengths and weaknesses.
                         </p>
                     </div>
                     <div className='md:w-1/2 w-full p-4'>

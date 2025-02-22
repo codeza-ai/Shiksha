@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import checkSession from "../util/session";
-
+import logout from "../util/logout";
 const Register = () => {
     async function handleSubmit(e){
         e.preventDefault();
@@ -18,6 +18,11 @@ const Register = () => {
             const response = res.data;
             // console.log(response);
             //Store userId and sessionId in local storage
+            if(response.test_completed){
+                alert("You have already completed the test. You can't take the test again.");
+                await logout();
+                return;
+            }
             localStorage.setItem("userId", response.user.user_id);
             localStorage.setItem("sessionId", response.session_id);
 
@@ -44,7 +49,7 @@ const Register = () => {
     return (
         <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
             <div className="mb-8">
-                <Link to="/"><img src="./logo-2.png" alt="Logo" className="h-24" /></Link>
+                <Link to="/"><img src="./logo-2.png" alt="Logo" className="h-28" /></Link>
             </div>
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
                 <h1 className="text-2xl font-bold text-black text-center mb-6">Login to start test</h1>

@@ -11,9 +11,6 @@ const Question = ({ qnumber }) => {
     setSelectedOption(null);
 
     if (!questionData) return; // Prevent errors if questionData is undefined
-
-    console.log(questionData);
-
     // Retrieve stored answers
     const storedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
     const currentAnswer = storedAnswers.find(

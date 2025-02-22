@@ -5,17 +5,17 @@ import checkSession from "../util/session";
 import logout from "../util/logout";
 
 const SectionPageInfo = {
-  A: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores numquam, libero quod ab laborum maxime! Sequi molestiae quod fugiat illo?",
-  B: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores numquam, libero quod ab laborum maxime! Sequi molestiae quod fugiat illo?",
-  C: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores numquam, libero quod ab laborum maxime! Sequi molestiae quod fugiat illo?",
-  D: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores numquam, libero quod ab laborum maxime! Sequi molestiae quod fugiat illo?",
+  A: "This section evaluates quantitative aptitude, problem-solving skills, and numerical reasoning. It includes arithmetic, algebra, geometry, and data interpretation to assess logical application and mathematical proficiency.",
+  B: "Designed to test language proficiency, logical thinking, and word association, this section includes analogies, sentence completion, and critical reasoning to measure verbal intelligence and linguistic dexterity.",
+  C: "This section focuses on pattern recognition, spatial reasoning, and logical sequencing using puzzles, shape transformations, and visual analogies to assess abstract thinking and problem-solving capabilities.",
+  D: "Evaluating reading proficiency and analytical skills, this section includes passages with inference-based questions, testing the ability to understand, interpret, and extract key information effectively.",
 };
 
 const sectionImage = {
-  A: "https://plus.unsplash.com/premium_photo-1719235403324-c1655d45146a?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  B: "https://images.unsplash.com/photo-1622838320000-4b3b3b3b3b3b",
-  C: "https://images.unsplash.com/photo-1622838320000-4b3b3b3b3b3b",
-  D: "https://images.unsplash.com/photo-1622838320000-4b3b3b3b3b3b",
+  A: "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  B: "https://images.unsplash.com/photo-1521424159246-e4a66f267e4b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  C: "https://images.unsplash.com/photo-1612611741189-a9b9eb01d515?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  D: "https://images.unsplash.com/photo-1601646371844-27ca327a468e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 };
 
 const SectionPage = () => {
