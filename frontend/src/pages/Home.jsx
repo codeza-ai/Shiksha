@@ -24,7 +24,7 @@ const Home = () => {
                         <img src="./hero-image.jpg" alt="hero-image" className='w-full' />
                     </div>
                 </div>
-                <div className='flex md:flex-row flex-col md:tex-lg text-2xl justify-center items-center w-full h-fit pt-5 p-2 md:p-4'>
+                <div className='flex md:flex-row flex-col md:text-2xl text-md justify-center items-center w-full h-fit pt-5 p-2 md:p-4'>
                     <div className='md:w-1/2 w-full p-4'>
                         <img src="./girl-on-board.jpg" alt="Girl writing on board" className='w-full rounded-2xl' />
                     </div>
@@ -32,7 +32,7 @@ const Home = () => {
                         India&apos;s education system, despite its vast reach, continues to grapple with deep-seated inefficiencies and systemic inequities. The COVID-19 pandemic has only exacerbated these challenges, with the digital divide further marginalizing students from low-income families. The pandemic has also underscored the need for a more holistic approach to education, one that goes beyond rote learning and focuses on building critical thinking and problem-solving skills.
                     </div>
                 </div>
-                <div className='flex md:flex-row flex-col-reverse md:tex-lg text-2xl justify-center items-center w-full h-fit pt-5 p-2 md:p-4'>
+                <div className='flex md:flex-row flex-col-reverse md:text-2xl text-md justify-center items-center w-full h-fit pt-5 p-2 md:p-4'>
                     <div className='md:w-1/2 w-full p-4'>
                         By leveraging technology and innovative teaching methods, we can create a more personalized and engaging learning experience for students. We can also empower teachers with the tools and resources they need to deliver high-quality instruction, regardless of their location or background. Our project seeks to disrupt this archaic framework by introducing an IoT-powered, ML-driven assessment system that evaluates students based on a single comprehensive test and recommends a personalized learning trajectory suited to their individual strengths and weaknesses.
                     </div>
@@ -41,8 +41,8 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='w-full p-5 h-fit flex flex-col justify-center items-center gap-4'>
-                    <p className='text-black md:text-5xl text-3xl'>Register for the test now !</p>
-                    <button className='bg-blue-500 text-xl text-white p-3 w-fit h-fit rounded-lg'>Register</button>
+                    <p className='text-black font-extrabold md:text-5xl text-2xl'>Register for the test now !</p>
+                    <Link to="/register" className='bg-blue-500 text-xl text-white p-3 w-fit h-fit rounded-lg'>Register</Link>
                 </div>
             </div>
             <Footer />

@@ -40,7 +40,7 @@ const Header = () => {
                 ) : (
                     <>
                         <Link to="/test" className="p-1 m-1 md:m-4 bg-white rounded-sm text-green-600 hover:bg-green-200">Start Test</Link>
-                        <button onClick={logout} className="p-1 m-1 md:m-4 bg-white rounded-sm text-red-500 hover:bg-red-200">Log out</button>
+                        <button onClick={logout} className="w-fit p-1 m-1 md:m-4 bg-white rounded-sm text-red-500 hover:bg-red-200">Log out</button>
                     </>
                 )}
             </nav>

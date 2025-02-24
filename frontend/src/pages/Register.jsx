@@ -19,11 +19,10 @@ const Register = () => {
         console.log(data);
         try {
             const res = await axios.post(URL, data);
+            alert(res.message);
             if(res.status === 200){
-                alert("Registration succesful. Login to start the test.");
                 window.location.href = "/login";
             }
-            alert(res.message);
         }catch(err){
             console.log(err);
         }
