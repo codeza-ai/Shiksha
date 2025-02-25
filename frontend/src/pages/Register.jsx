@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 import checkSession from "../util/session";
+import Logo from "../components/Logo";
 
 const Register = () => {
 
@@ -42,13 +43,13 @@ const Register = () => {
     return (
         <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
             <div className="mb-8">
-                <Link to="/"><img src="./logo-2.png" alt="Logo" className="h-24" /></Link>
+                <Logo/>
             </div>
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg min-w-sm">
                 <h1 className="text-2xl font-bold text-black text-center mb-3">Register for the test</h1>
                 <p className="text-red-500 text-center mb-3">{`(All the fields are mandatory)`}</p>
                 <hr />
-                <p className="text-center mb-6 mt-3">Already registered? <Link to="/login" className="text-blue-500">Login</Link></p>
+                <p className="text-center mb-6 mt-3">Already registered? <Link to="/login" className="text-blue-500 hover:underline">Login</Link></p>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     <div className="flex flex-col space-y-2">
                         <label htmlFor="full-name" className="text-black font-medium">Full Name:</label>

@@ -10,9 +10,10 @@ const Footer = ()=>{
                     <li><a href="https://www.instagram.com/darshan.odedara" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                 </ul>
             </div>
-            <div className="md:w-1/2 w-full flex flex-col items-center justify-center">
-                <div className='w-full p-5 flex justify-center'>
-                    <img src="./logo.png" className="md:w-1/3 w-1/2" alt="Logo" />
+            <div className="md:w-1/2 w-full flex flex-col justify-center items-center">
+                <div className='w-full p-5 flex items-center justify-center gap-4 text-4xl font-bold'>
+                    <img src="./logo.png" className="w-14" alt="Logo" />
+                    <h1>Shiksha</h1>
                 </div>
                 <div>
                     <div className="flex flex-col items-center mt-3">

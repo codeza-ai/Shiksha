@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import checkSession from "../util/session";
 import logout from "../util/logout";
+import Logo from "../components/Logo";
 const Register = () => {
     async function handleSubmit(e){
         e.preventDefault();
@@ -50,13 +51,13 @@ const Register = () => {
     return (
         <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
             <div className="mb-8">
-                <Link to="/"><img src="./logo-2.png" alt="Logo" className="h-24" /></Link>
+                <Logo/>
             </div>
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
                 <h1 className="text-2xl font-bold text-black text-center mb-3">Login to start test</h1>
                 <p className="text-red-500 text-center mb-3">{`(All the fields are mandatory)`}</p>
                 <hr />
-                <p className="text-center mb-6 mt-3">Not registered yet? <Link to="/register" className="text-blue-500">Register</Link></p>
+                <p className="text-center mb-6 mt-3">Not registered yet? <Link to="/register" className="text-blue-500 hover:underline">Register</Link></p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="flex flex-col space-y-2">
                         <label htmlFor="full-name" className="text-black font-medium">Full Name:</label>

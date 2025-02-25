@@ -1,23 +1,19 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
-
+import RegButton from '../components/buttons/RegButton';
 const Home = () => {
     return (
         <>
             <Header />
-            <main id="hero" className='pt-20 w-full h-fit flex md:flex-row flex-col justify-center items-center p-8'>
-                <div className='w-full rounded-lg flex flex-col bg-[url(./classroom.jpg)] bg-cover bg-center md:w-1/2 h-96'>
-                    <div className='w-full flex flex-col justify-center items-center md:p-5 p-2'>
-                        <h1><del className='text-red-700'>No</del> more</h1>
-                        <h1><del className='text-red-700'>empty</del></h1>
-                        <h1>classrooms <span className='text-green-400'>!</span>
-                        </h1>
+            <main id="hero" className='w-full h-fit flex md:flex-row flex-col justify-center items-center md:p-8 p-4'>
+                <div className='mt-24 w-full h-96 rounded-lg flex md:flex-row flex-col bg-[url(/hero-image.jpg)] bg-cover bg-center md:w-3/4'>
+                    <div className='md:w-1/2 w-full flex justify-center items-center p-8'>
+                        <p className='md:text-7xl text-4xl text-white'><span className='line-through text-red-500'>No</span> More <span className='line-through text-red-500'>Empty</span> Classrooms !</p>
+                    </div>
+                    <div className='bg-white/30 md:w-1/2 w-full flex flex-col justify-center items-center md:p-5 p-2'>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est dolores magnam ab perspiciatis quasi odit repudiandae ex cumque quidem nesciunt.</p>
                         <div className='mt-5 w-full flex h-fit justify-center items-center'>
-                            <Link
-                                to="/register"
-                                className='bg-blue-500 hover:bg-blue-700 hover:scale-105 delay-75 transition-all  text-lg font-semibold text-white p-4 pr-6 pl-6 rounded-md'
-                            >Register now<span className='font-light'> - it&apos;s free</span></Link>
+                            <RegButton priText={`Register now`} secText ={`- it's free`} />
                         </div>
                     </div>
                 </div>
@@ -45,10 +41,7 @@ const Home = () => {
             </div>
             <div className='mb-7 w-full p-5 h-fit flex flex-col justify-center items-center gap-4'>
                 <p className='text-black font-extrabold md:text-5xl text-2xl'>Register for the test now !</p>
-                <Link
-                    to="/register"
-                    className='bg-blue-500 hover:bg-blue-700 hover:scale-105 delay-75 transition-all  text-lg font-semibold text-white p-4 pr-6 pl-6 rounded-md'
-                >Register</Link>
+                <RegButton priText={`Register`} />
             </div>
             <Footer />
         </>
