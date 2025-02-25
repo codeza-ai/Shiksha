@@ -14,7 +14,7 @@ const Register = () => {
             "age": parseInt(e.target["age"].value),
             "date_of_birth": e.target["dob"].value,
             "standard": parseInt(e.target["class"].value),
-            "school": e.target["school"].value
+            "state": e.target["state"].value
         }
         console.log(data);
         try {
@@ -52,25 +52,61 @@ const Register = () => {
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     <div className="flex flex-col space-y-2">
                         <label htmlFor="full-name" className="text-black font-medium">Full Name:</label>
-                        <input type="text" id="full-name" name="full-name" className="border border-black rounded-md p-2" />
+                        <input required type="text" id="full-name" name="full-name" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="mobile" className="text-black font-medium">Mobile number:</label>
-                        <input type="tel" id="mobile" name="mobile" className="border border-black rounded-md p-2" />
+                        <input required type="tel" id="mobile" name="mobile" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="age" className="text-black font-medium">Age:</label>
-                        <input type="number" id="age" name="age" className="border border-black rounded-md p-2" />
+                        <input required type="number" id="age" name="age" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="dob" className="text-black font-medium">Birth date:</label>
-                        <input type="date" id="dob" name="dob" className="border border-black rounded-md p-2" />
+                        <input required type="date" id="dob" name="dob" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="class" className="text-black font-medium">Class:</label>
-                        <input type="number" id="class" name="class" className="border border-black rounded-md p-2" />
+                        <input required type="number" id="class" name="class" className="border border-black rounded-md p-2" />
 
-                        <label htmlFor="school" className="text-black font-medium">School:</label>
-                        <select name="school" id="school" className="border border-black rounded-md p-2">
-                            <option value="">select-school</option>
-                            <option value="JNV Bharuch">JNV Bharuch</option>
-                            <option value="KV">KV - IIM Kolkata</option>
+                        <label htmlFor="state" className="text-black font-medium">State:</label>
+                        <select required name="state" id="state" className="border border-black rounded-md p-2">
+                            <option value="">select-state</option>
+                            <option value="Other">Other</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Andaman & Nicobar">Andaman & Nicobar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Dadra & Nagar Haveli">Dadra & Nagar Haveli</option>
+                            <option value="Daman & Diu">Daman and Diu</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Ladakh">Ladakh</option>
+                            <option value="Jammu & Kashmir">Jammu & Kashmir</option>
                         </select>
                     </div>
                     <div className="flex justify-center mt-4">
