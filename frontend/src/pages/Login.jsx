@@ -70,7 +70,9 @@ const Register = () => {
 
                     </div>
                     <div className="flex justify-center mt-4">
-                        <button type="submit" className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">Login</button>
+                        <button type="submit" className="flex bg-blue-500 text-white py-2 w-28 rounded-lg hover:bg-blue-600 transition">
+                            <svg className="mr-3 size-5 animate-spin" viewBox="0 0 24 24">
+                            </svg>Login</button>
                     </div>
                 </form>
             </div>
