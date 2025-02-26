@@ -53,22 +53,22 @@ const Register = () => {
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     <div className="flex flex-col space-y-2">
                         <label htmlFor="full-name" className="text-black font-medium">Full Name:</label>
-                        <input type="text" id="full-name" name="full-name" className="border border-black rounded-md p-2" />
+                        <input required type="text" id="full-name" name="full-name" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="mobile" className="text-black font-medium">Mobile number:</label>
-                        <input type="tel" id="mobile" name="mobile" className="border border-black rounded-md p-2" />
+                        <input required type="tel" id="mobile" name="mobile" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="age" className="text-black font-medium">Age:</label>
-                        <input type="number" id="age" name="age" className="border border-black rounded-md p-2" />
+                        <input required type="number" id="age" name="age" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="dob" className="text-black font-medium">Birth date:</label>
-                        <input type="date" id="dob" name="dob" className="border border-black rounded-md p-2" />
+                        <input required type="date" id="dob" name="dob" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="class" className="text-black font-medium">Class:</label>
-                        <input type="number" id="class" name="class" className="border border-black rounded-md p-2" />
+                        <input required type="number" id="class" name="class" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="school" className="text-black font-medium">School:</label>
-                        <select name="school" id="school" className="border border-black rounded-md p-2">
+                        <select required name="school" id="school" className="border border-black rounded-md p-2">
                             <option value="">select-school</option>
                             <option value="JNV Bharuch">JNV Bharuch</option>
                             <option value="KV">KV - IIM Kolkata</option>

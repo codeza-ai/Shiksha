@@ -61,13 +61,13 @@ const Register = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="flex flex-col space-y-2">
                         <label htmlFor="full-name" className="text-black font-medium">Full Name:</label>
-                        <input type="text" id="full-name" name="full-name" className="border border-black rounded-md p-2" />
+                        <input required type="text" id="full-name" name="full-name" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="mobile" className="text-black font-medium">Mobile number:</label>
-                        <input type="tel" id="mobile" name="mobile" className="border border-black rounded-md p-2" />
+                        <input required type="tel" id="mobile" name="mobile" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="dob" className="text-black font-medium">Birth date:</label>
-                        <input type="date" id="dob" name="dob" className="border border-black rounded-md p-2" />
+                        <input required type="date" id="dob" name="dob" className="border border-black rounded-md p-2" />
 
                     </div>
                     <div className="flex justify-center mt-4">
