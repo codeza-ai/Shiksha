@@ -1,49 +1,62 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
-
+import RegButton from '../components/buttons/RegButton';
+import RoadMap from '../components/RoadMap';
 const Home = () => {
     return (
         <>
             <Header />
-            <div className='w-full pt-20 pb-7'>
-                <div id="hero" className='w-full h-fit flex md:flex-row flex-col justify-center items-center p-8 gap-8'>
-                    <div className='w-full md:w-1/3 h-full flex flex-col justify-between items-center  md:p-5 p-2'>
-                        <img src="./hero-txt.png" alt="Hero Text" className='w-full' />
-                        {/* <h1><del className='text-red-700'>No</del> more</h1>
-                            <h1><del className='text-red-700'>empty</del></h1>
-                            <h1>classrooms <span className='text-green-400'>!</span></h1> */}
+            <div className="h-20 bg-white">
+            </div>
+            <main id="hero" className='w-full h-fit flex md:flex-row flex-col justify-center items-center p-4'>
+                <div className='mt-10 md:w-3/4 w-full h-96 rounded-lg flex justify-between md:flex-row flex-col bg-[url(/hero-image.jpg)] bg-cover bg-center'>
+                    <div className='md:w-1/2 w-full flex justify-center items-center md:p-8 p-4'>
+                        <p className='md:text-7xl text-6xl text-white'><span className='line-through text-red-500'>No</span> More <span className='line-through text-red-500'>Empty</span> Classrooms !</p>
+                    </div>
+                    <div className='bg-black/20 backdrop-invert-75 md:w-1/2 w-full flex flex-col justify-center items-center md:p-5 p-2 rounded-md'>
+                        <p className='md:text-xl text-lg  text-white'>Know your strengths and weaknesses with a single test. Register for the test know and join us in the journey of revolution.</p>
                         <div className='mt-5 w-full flex h-fit justify-center items-center'>
-                            <Link 
-                                to = "/register"
-                                className='bg-blue-500 text-xl text-white p-3 w-fit h-fit rounded-lg'
-                            >Register Now</Link>
+                            <RegButton priText={`Register now`} secText ={`- it's free`} />
                         </div>
                     </div>
-                    <div className='hidden md:block md:w-2/3 h-auto rounded-2xl overflow-hidden'>
-                        <img src="./hero-image.jpg" alt="hero-image" className='w-full' />
+                </div>
+            </main>
+            <div className='w-full pt-10 pb-10 flex justify-center'>
+                <div className='md:w-3/4 w-full bg-gray-800 text-white p-6 md:p-8 rounded-md'>
+                    <h1 className='text-4xl mb-5'>How does it work?</h1>
+                    <RoadMap/>
+                </div>
+            </div>
+            <div className='w-full flex justify-center pb-7 pt-7'>
+                <div className='md:w-3/4 w-full h-fit md:gap-8 gap-4 p-4 flex md:flex-row flex-col md:text-lg text-md justify-center items-center bg-gray-100 rounded-md'>
+                    <div className='md:w-1/2 w-full flex justify-center'>
+                        <img src="/girl-on-board.jpg" alt="Girl writing on board" className=' w-full rounded-lg' />
+                    </div>
+                    <div className='md:w-1/2 w-full flex flex-col justify-center gap-4'>
+                        <h2 className='md:text-2xl text-lg'><span className='font-bold'>India&apos;s literacy problem, a big concern...</span> What is the solution?</h2>
+                        <div className='w-full md:text-lg text-md'>
+                            India&apos;s education system, despite its vast reach, continues to grapple with deep-seated inefficiencies and systemic inequities. The COVID-19 pandemic has only exacerbated these challenges, with the digital divide further marginalizing students from low-income families. The pandemic has also underscored the need for a more holistic approach to education, one that goes beyond rote learning and focuses on building critical thinking and problem-solving skills.
+                        </div>
                     </div>
                 </div>
-                <div className='flex md:flex-row flex-col md:text-2xl text-md justify-center items-center w-full h-fit pt-5 p-2 md:p-4'>
-                    <div className='md:w-1/2 w-full p-4'>
-                        <img src="./girl-on-board.jpg" alt="Girl writing on board" className='w-full rounded-2xl' />
+            </div>
+            <div className='w-full flex justify-center pt-7 pb-7'>
+                <div className='md:w-3/4 w-full h-fit md:gap-8 gap-4 p-4 flex md:flex-row flex-col-reverse md:text-lg text-md 
+                justify-center items-center border-2 border-gray-200 rounded-md'>
+                    <div className='md:w-1/2 w-full flex flex-col justify-center gap-4'>
+                        <h2 className='md:text-2xl text-lg'><span className='font-bold'>Our project and the effort that it makes...</span> Is it the ultimate solution?</h2>
+                        <div className='w-full md:text-lg text-md'>
+                            By leveraging technology and innovative teaching methods, we can create a more personalized and engaging learning experience for students. Our project seeks to disrupt this archaic framework by introducing an IoT-powered, ML-driven assessment system that evaluates students based on a single comprehensive test and recommends a personalized learning trajectory suited to their individual strengths and weaknesses.
+                        </div>
                     </div>
-                    <div className='md:w-1/2 w-full p-4'>
-                        India&apos;s education system, despite its vast reach, continues to grapple with deep-seated inefficiencies and systemic inequities. The COVID-19 pandemic has only exacerbated these challenges, with the digital divide further marginalizing students from low-income families. The pandemic has also underscored the need for a more holistic approach to education, one that goes beyond rote learning and focuses on building critical thinking and problem-solving skills.
-                    </div>
-                </div>
-                <div className='flex md:flex-row flex-col-reverse md:text-2xl text-md justify-center items-center w-full h-fit pt-5 p-2 md:p-4'>
-                    <div className='md:w-1/2 w-full p-4'>
-                        By leveraging technology and innovative teaching methods, we can create a more personalized and engaging learning experience for students. We can also empower teachers with the tools and resources they need to deliver high-quality instruction, regardless of their location or background. Our project seeks to disrupt this archaic framework by introducing an IoT-powered, ML-driven assessment system that evaluates students based on a single comprehensive test and recommends a personalized learning trajectory suited to their individual strengths and weaknesses.
-                    </div>
-                    <div className='md:w-1/2 w-full p-4'>
-                        <img src="./students.jpg" alt="Girl writing on board" className='w-full rounded-2xl' />
+                    <div className='md:w-1/2 w-full flex justify-center'>
+                        <img src="/students.jpg" alt="Girl writing on board" className='  w-full rounded-lg' />
                     </div>
                 </div>
-                <div className='w-full p-5 h-fit flex flex-col justify-center items-center gap-4'>
-                    <p className='text-black font-extrabold md:text-5xl text-2xl'>Register for the test now !</p>
-                    <Link to="/register" className='bg-blue-500 text-xl text-white p-3 w-fit h-fit rounded-lg'>Register</Link>
-                </div>
+            </div>
+            <div className='mb-7 w-full p-5 h-fit flex flex-col justify-center items-center gap-4'>
+                <p className='text-black font-extrabold md:text-4xl text-3xl'>Register for the test now !</p>
+                <RegButton priText={`Register`} />
             </div>
             <Footer />
         </>
