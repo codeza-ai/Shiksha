@@ -21,7 +21,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="fixed text-black px-4 py-2 w-full flex justify-between items-center bg-white/50 backdrop-blur-sm h-20 border-b-2 border-gray-200 rounded-b-lg">
+        <header className="z-10 fixed text-black md:px-20 px-4 py-3 w-full flex justify-between items-center bg-white h-20 border-b-1 border-gray-200">
             <Logo/>
 
             {/* Mobile Menu Button */}
@@ -31,9 +31,9 @@ const Header = () => {
 
             {/* Navigation Menu */}
             <nav className={`md:flex gap-4 text-xl absolute md:static top-20 left-0 w-full bg-white md:bg-transparent md:w-fit justify-center items-center flex-col md:flex-row shadow-lg md:shadow-none shadow-gray-500 ${menuOpen ? 'flex gp-4' : 'hidden'}`}>
-                <Link to="/" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">Home</Link>
-                <Link to="/about" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">About</Link>
-                <Link to="/contact" className="p-1 m-1 md:m-4 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">Contact Us</Link>
+                <Link to="/" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">Home</Link>
+                <Link to="/about" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">About</Link>
+                <Link to="/contact" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">Contact Us</Link>
                 {!loggedIn ? (
                     <div className='flex gap-4 justify-center items-center'>
                         <RegButton priText = {`Register`}/>

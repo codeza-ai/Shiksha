@@ -4,7 +4,9 @@ import axios from "axios";
 import checkSession from "../util/session";
 import logout from "../util/logout";
 import Logo from "../components/Logo";
-const Register = () => {
+import Submit from "../components/buttons/Submit";
+
+const Login = () => {
     async function handleSubmit(e){
         e.preventDefault();
         let URL = import.meta.env.VITE_REACT_API_URL + "/api/login";
@@ -58,22 +60,20 @@ const Register = () => {
                 <p className="text-red-500 text-center mb-3">{`(All the fields are mandatory)`}</p>
                 <hr />
                 <p className="text-center mb-6 mt-3">Not registered yet? <Link to="/register" className="text-blue-500 hover:underline">Register</Link></p>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 md:text-lg text-md text-black font-medium">
                     <div className="flex flex-col space-y-2">
-                        <label htmlFor="full-name" className="text-black font-medium">Full Name:</label>
+                        <label htmlFor="full-name">Full Name:</label>
                         <input required type="text" id="full-name" name="full-name" className="border border-black rounded-md p-2" />
 
-                        <label htmlFor="mobile" className="text-black font-medium">Mobile number:</label>
+                        <label htmlFor="mobile">Mobile number:</label>
                         <input required type="tel" id="mobile" name="mobile" className="border border-black rounded-md p-2" />
 
-                        <label htmlFor="dob" className="text-black font-medium">Birth date:</label>
+                        <label htmlFor="dob">Birth date:</label>
                         <input required type="date" id="dob" name="dob" className="border border-black rounded-md p-2" />
 
                     </div>
                     <div className="flex justify-center mt-4">
-                        <button type="submit" className="flex bg-blue-500 text-white py-2 w-28 rounded-lg hover:bg-blue-600 transition">
-                            <svg className="mr-3 size-5 animate-spin" viewBox="0 0 24 24">
-                            </svg>Login</button>
+                        <Submit text="Login"/>
                     </div>
                 </form>
             </div>
@@ -81,4 +81,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
