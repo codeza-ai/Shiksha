@@ -30,7 +30,7 @@ const Header = () => {
             </button>
 
             {/* Navigation Menu */}
-            <nav className={`md:flex gap-4 text-xl absolute md:static top-20 left-0 w-full bg-white md:bg-transparent md:w-fit justify-center items-center flex-col md:flex-row shadow-lg md:shadow-none shadow-gray-500 ${menuOpen ? 'flex gp-4' : 'hidden'}`}>
+            <nav className={`md:flex text-xl absolute md:static top-20 left-0 w-full bg-white md:bg-transparent md:w-fit justify-center items-center flex-col md:flex-row shadow-lg md:shadow-none shadow-gray-500 ${menuOpen ? 'flex gap-2 p-4' : 'hidden'}`}>
                 <Link to="/" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">Home</Link>
                 <Link to="/about" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">About</Link>
                 <Link to="/contact" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500  hover:bg-blue-200">Contact Us</Link>

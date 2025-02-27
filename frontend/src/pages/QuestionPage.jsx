@@ -45,6 +45,13 @@ const QuestionPage = () => {
     check();
   }, [qNumber, sectionName]);
 
+  async function exitTest() {
+    // Prompt is user actually wants to exit test
+    if (window.confirm("Are you sure you want to exit the test?")) {
+      await logout();
+    }
+  }
+
   const submitSection = async (timeTaken) => {
     const storedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
     const answeredQuestions = new Set(storedAnswers.map((answer) => answer.qNumber));
@@ -85,7 +92,7 @@ const QuestionPage = () => {
   return (
     <div className="flex bg-gray-100 h-screen">
       <div className="w-1/3 h-full">
-        <TestNav onSubmit={submitSection} setTime />
+        <TestNav onSubmit={submitSection} onExit={exitTest} />
       </div>
       <div className="w-2/3 h-full text-gray-900 p-10 overflow-y-scroll">
         {questionNumber !== null && <Question qnumber={questionNumber} />}

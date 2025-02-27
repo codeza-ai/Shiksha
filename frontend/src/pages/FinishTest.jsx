@@ -24,7 +24,7 @@ const FinishTest =()=>{
                 <img src="https://pngimg.com/uploads/thank_you/thank_you_PNG83.png" alt="Thank you" className="max-w-full max-h-full"/>
                 <div className="w-full p-5 flex justify-center">
                     <button 
-                    className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+                        className="bg-blue-500 hover:bg-blue-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit"
                     onClick={deleteSession}>Finish</button>
                 </div>
             </div>

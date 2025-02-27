@@ -6,18 +6,30 @@ import Logo from "../components/Logo";
 import Submit from "../components/buttons/Submit";
 
 const Register = () => {
-
+    const validate=(data)=>{
+        if((data["name"]).length < 3){
+            alert("Name should be atleast 3 characters long");
+            return false;
+        }else if(data["mobile"].toString().length !== 10){
+            alert("Mobile number should be 10 digits long");
+            return false;
+        }
+        return true;
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let URL = import.meta.env.VITE_REACT_API_URL + "/api/signup";
         let data = {
-            "name": e.target["full-name"].value,
+            "name": e.target["full-name"].value.trim(),
             "mobile": parseInt(e.target["mobile"].value),
             "age": parseInt(e.target["age"].value),
             "date_of_birth": e.target["dob"].value,
             "standard": parseInt(e.target["class"].value),
             "state": e.target["state"].value
+        };
+        if(!validate(data)){
+            return;
         }
+        let URL = import.meta.env.VITE_REACT_API_URL + "/api/signup";
         console.log(data);
         try {
             const res = await axios.post(URL, data);

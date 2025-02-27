@@ -7,6 +7,16 @@ import Logo from "../components/Logo";
 import Submit from "../components/buttons/Submit";
 
 const Login = () => {
+    const validate = (data) => {
+        if ((data["name"]).length < 3) {
+            alert("Name should be atleast 3 characters long");
+            return false;
+        } else if (data["mobile"].toString().length !== 10) {
+            alert("Mobile number should be 10 digits long");
+            return false;
+        }
+        return true;
+    };
     async function handleSubmit(e){
         e.preventDefault();
         let URL = import.meta.env.VITE_REACT_API_URL + "/api/login";
@@ -16,6 +26,7 @@ const Login = () => {
             "mobile": parseInt(e.target["mobile"].value),
             "date_of_birth": e.target["dob"].value
         }
+        if(!validate(data)) return;
         try {
             const res = await axios.post(URL, data);
             const response = res.data;
@@ -31,10 +42,9 @@ const Login = () => {
                 localStorage.setItem("sessionId", response.session_id);
                 alert(response.message);
                 window.location.href = "/test";
-            }else{
-                alert(response.detail);
             }
         }catch(err){
+            alert(err.response.data.detail);
             console.log(err);
         }
     }
@@ -42,7 +52,6 @@ const Login = () => {
     useEffect(()=>{
         async function redirect() {
             let session = await checkSession();
-            console.log(session);
             if (session) {
                 alert("You have already logged in. Start the test.");
                 window.location.href = "/test";

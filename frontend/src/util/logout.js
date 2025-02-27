@@ -20,6 +20,7 @@ const logout = async() =>{
         localStorage.removeItem("userId");
         localStorage.removeItem("answers");
         localStorage.removeItem("sectionTimer");
+        localStorage.removeItem("currentSection");
     } catch (err) {
         console.log(err);
         alert("An error occurred while logging out. Please try again.");

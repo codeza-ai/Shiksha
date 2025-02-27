@@ -1,3 +1,5 @@
+import tailwindcssMotion from 'tailwindcss-motion';
+
 export default {
     theme: {
         extend: {
@@ -6,5 +8,5 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [tailwindcssMotion],
 };

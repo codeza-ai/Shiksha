@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Timer from './Timer';
 import PropTypes from 'prop-types';
 
-const TestNav = ({ onSubmit }) => {
+const TestNav = ({ onSubmit, onExit }) => {
   const { sectionName, qNumber } = useParams();
   const navigate = useNavigate();
   const totalQuestions = 10;
@@ -40,36 +40,45 @@ const TestNav = ({ onSubmit }) => {
 
       {/* Navigation Buttons */}
       <div className="flex flex-col items-center w-full text-xl">
-        <div className="flex justify-between gap-2 w-full mt-5 mb-5">
+        <div className="flex justify-between gap-2 w-full my-2">
           <button
             onClick={() => navigate(`/test/section/${sectionName}/question/${parseInt(qNumber) - 1}`)}
-            className="bg-fuchsia-900 text-white py-2 px-4 rounded-md transition hover:bg-blue-600 w-1/2"
+            className="bg-violet-500 hover:bg-violet-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-1/2"
             disabled={qNumber == 1}
           >
-            ⬅️ Prev
+            Prev
           </button>
+          
           <button
             onClick={() => navigate(`/test/section/${sectionName}/question/${parseInt(qNumber) + 1}`)}
-            className="bg-green-500 text-white py-2 px-4 rounded-md transition hover:bg-blue-600 w-1/2"
+            className="flex justify-evenly bg-green-500 hover:bg-green-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-1/2"
             disabled={qNumber == 10}
           >
-            Next ➡️
+            Next
           </button>
         </div>
 
-        {/* Submit Section Button */}
-        <button
-          onClick={() => onSubmit(timeTaken)}
-          className="bg-red-500 text-white py-2 px-4 rounded-md transition hover:bg-blue-600 w-full"
-        >
-          Submit Section ✉️
-        </button>
+        <div className='flex flex-col gap-2 w-full'>
+          <button
+            onClick={() => onSubmit(timeTaken)}
+            className="bg-blue-500 hover:bg-blue-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-full"
+          >
+            Submit Section
+          </button>
+          <button
+            onClick={() => onExit()}
+            className='bg-red-500 hover:bg-red-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-full'
+          >
+            Exit Test
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 TestNav.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onExit: PropTypes.func.isRequired,
 };
 
 export default TestNav;

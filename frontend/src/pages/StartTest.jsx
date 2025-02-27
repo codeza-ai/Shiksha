@@ -25,8 +25,8 @@ const StartTest = ()=> {
                 </ol>
             </div>
             <div className="w-full flex justify-evenly items-center p-4">
-                    <Link to={"/"} className="bg-black hover:bg-gray-700 text-xl text-white p-2 w-fit h-fit rounded-xl">Go Back</Link>
-                    <Link to={"/test/section/A"} className="bg-blue-500 hover:bg-blue-700 text-xl text-white p-2 w-fit h-fit rounded-xl">Start Test</Link>
+                    <Link to={"/"} className="bg-gray-800 hover:bg-black hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit">Go Back</Link>
+                    <Link to={"/test/section/A"} className="bg-blue-500 hover:bg-blue-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit">Start Test</Link>
             </div>
         </div>
     </div>);

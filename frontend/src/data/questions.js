@@ -84,7 +84,7 @@ const questions = [
   {
     number: 16,
     question: "Which group does STATIONERY belong in?",
-    options: ["Group A", "Group B", "Group C", "Group D"],
+    options: ["Office Supplies", "Electronic Devices", "Furniture", "Kitchen Supplies"],
   },
   {
     number: 17,
@@ -101,7 +101,7 @@ const questions = [
   {
     number: 19,
     question:
-      "Anxious is to (fretful thought restful) as loving is to (believe delighted kind).",
+      "Anxious is to _________ as loving is to _________.",
     options: [
       "thought kind",
       "thought believe",

@@ -23,7 +23,7 @@ const Timer = ({ onTimeUpdate }) => {
     }, [secondsElapsed, onTimeUpdate]);
 
     return (
-        <div className="text-xl bg-gray-800 text-white p-3 w-fit rounded-md">
+        <div className="text-xl bg-gray-800 text-white p-3 w-40 rounded-md">
             Time: {Math.floor(secondsElapsed / 60)}m {secondsElapsed % 60}s
         </div>
     );

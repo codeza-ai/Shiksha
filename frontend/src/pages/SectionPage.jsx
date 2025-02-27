@@ -61,13 +61,13 @@ const SectionPage = () => {
         </div>
         <div className="w-full flex justify-center gap-5">
           <button
-            className="text-white bg-black hover:bg-gray-800 p-2 rounded-md"
+            className="bg-gray-800 hover:bg-black hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit"
             onClick={() => goBack()}
           >
             Go Back
           </button>
           <button
-            className="text-white bg-blue-500 hover:bg-blue-700 p-2 rounded-md"
+            className="bg-blue-500 hover:bg-blue-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit"
             onClick={() => startQuiz()}
           >
             Start Quiz
