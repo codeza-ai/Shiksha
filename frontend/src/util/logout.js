@@ -19,13 +19,13 @@ const logout = async() =>{
         localStorage.removeItem("sessionId");
         localStorage.removeItem("userId");
         localStorage.removeItem("answers");
-        localStorage.removeItem("sectionTimer");
+        localStorage.sessionId("sectionTimer", 0);
         localStorage.removeItem("currentSection");
+        window.location.href = "/";
     } catch (err) {
         console.log(err);
         alert("An error occurred while logging out. Please try again.");
     }
-    window.location.href = "/";
 }
 
 export default logout;

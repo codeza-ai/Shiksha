@@ -3,6 +3,16 @@ import Footer from "../components/Footer";
 import Submit from "../components/buttons/Submit";
 import axios from "axios";
 const Contact = () => {
+    function validate(data){
+        if(data.name.length < 3){
+            alert("Name should be atleast 3 characters long");
+            return false;
+        }else if(data.mobile.length !== 10){
+            alert("Invalid mobile number");
+            return false;
+        }
+        return true;
+    }
     async function handleSubmit(e) {
         e.preventDefault();
         const URL = import.meta.env.VITE_API_URL + "/feedback";
@@ -12,7 +22,7 @@ const Contact = () => {
             email: e.target["email"].value,
             query: e.target["query"].value
         };
-
+        if (!validate(data))return;
         try {
             const res = await axios.post(URL, data);
             if (res.status === 200) {

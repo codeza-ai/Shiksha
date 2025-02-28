@@ -65,7 +65,7 @@ const Register = () => {
                 <p className="text-center mb-6 mt-3">Already registered? <Link to="/login" className="text-blue-500 hover:underline">Login</Link></p>
                 <form className="space-y-4 md:text-lg text-md text-black font-medium" onSubmit={handleSubmit}>
                     <div className="flex flex-col space-y-2">
-                        <label htmlFor="full-name">Full Name:</label>
+                        <label htmlFor="full-name">Full name:</label>
                         <input required type="text" id="full-name" name="full-name" className="border border-black rounded-md p-2" />
 
                         <label htmlFor="mobile">Mobile number:</label>

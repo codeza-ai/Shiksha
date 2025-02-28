@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Logo from "../components/Logo";
 const StartTest = ()=> {
     useEffect(()=>{
         localStorage.removeItem("currentSection");
@@ -8,8 +9,8 @@ const StartTest = ()=> {
 
     return (
     <div className="w-full bg-gray-100 pt-10 pb-10 text-gray-900 flex flex-col justify-center items-center">
-        <div className="mb-8">
-            <img src="./logo.png" alt="Logo" className="h-28" />
+        <div className="mb-8 ">
+            <Logo/>
         </div>
         <div id="instructions" className="bg-white p-4 rounded-lg shadow-lg text-center w-1/2 min-w-lg h-fit">
             <div className="w-full p-3">

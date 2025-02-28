@@ -23,21 +23,27 @@ const About = ()=>{
                     Our project aligns with the United Nations Sustainable Development Goal 4, which aims to ensure inclusive and equitable quality education for all. By leveraging technology and data analytics, we seek to bridge the gap between traditional classroom instruction and personalized learning, providing students with the tools they need to succeed in a rapidly changing world.
                 </p>
             </div>  
-            <div className="md:w-3/4 w-full p-4 gap-4 md:gap-8 md:text-xl text-lg mt-10 border-2 border-gray-200 md:flex-row flex flex-col justify-evenly bg-white rounded-lg">
-                <div className="flex flex-col items-center justify-center p-2 gap-3 h-fit w-fit">
-                    <img src="Darshan.png" alt="Darshan Odedara" className="w-xs mb-4"/>
-                    <h1 className="font-bold md:text-2xl text-lg">Darshan Odedara</h1>
-                    <h1 className="text-blue-500">Frontend Development</h1>
+            <div className="md:w-3/4 w-full p-4 gap-4 md:gap-8 md:text-xl text-lg mt-10 border-2 border-gray-200 md:flex-row flex flex-col items-center md:justify-evenly bg-white rounded-lg mb-7">
+                <div className="flex flex-col items-center justify-center gap-3 h-fit w-fit">
+                    <div className="w-2xs h-2xs bg-linear-to-r/hsl from-blue-500 to-blue-300 rounded-full overflow-hidden ">
+                        <img src="Darshan.png" alt="Darshan Odedara" className="w-xs"/>
+                    </div>
+                    <h1 className="font-bold md:text-2xl text-xl">Darshan Odedara</h1>
+                    <h1 className="text-blue-500 md:text-2xl text-xl">Frontend Development</h1>
                 </div>
                 <div className="flex flex-col items-center justify-center p-2 gap-3 h-fit w-fit">
-                    <img src="Steve.png" alt="Steve" className="w-xs mb-4"/>
-                    <h1 className="font-bold md:text-2xl text-lg">Steve Joseph</h1>
-                    <h1 className="text-blue-500">Backend Development</h1>
+                    <div className="w-2xs h-2xs bg-linear-to-r/hsl from-blue-500 to-blue-300 rounded-full overflow-hidden ">
+                        <img src="Steve.png" alt="Steve Joseph" className="w-xs" />
+                    </div>
+                    <h1 className="font-bold md:text-2xl text-xl">Steve Joseph</h1>
+                    <h1 className="text-blue-500 md:text-2xl text-xl">Backend Development</h1>
                 </div>
                 <div className="flex flex-col items-center justify-center p-2 gap-3 h-fit w-fit">
-                    <img src="Arjun.png" alt="Arjun" className="w-xs mb-4"/>
-                    <h1 className="font-bold md:text-2xl text-lg">Arjun Avittathur</h1>
-                    <h1 className="text-blue-500">Machine Learning</h1>
+                    <div className="w-2xs h-2xs bg-linear-to-r/hsl from-blue-500 to-blue-300 rounded-full overflow-hidden ">
+                        <img src="Arjun.png" alt="Arjun Avittathur" className="w-xs" />
+                    </div>
+                    <h1 className="font-bold md:text-2xl text-xl">Arjun Avittathur</h1>
+                    <h1 className="text-blue-500 md:text-2xl text-xl">Machine Learning</h1>
                 </div>
             </div>
         </div>

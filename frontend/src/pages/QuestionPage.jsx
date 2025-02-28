@@ -14,7 +14,7 @@ const QuestionPage = () => {
   useEffect(() => {
     async function check() {
       const curr = localStorage.getItem("currentSection");
-      if (curr !== sectionName) {
+      if (!curr || curr !== sectionName) {
         window.history.back();
       }
 
@@ -63,39 +63,57 @@ const QuestionPage = () => {
     const userId = localStorage.getItem("userId");
     const sessionId = localStorage.getItem("sessionId");
 
-    try {
-      const URL = import.meta.env.VITE_REACT_API_URL + "/api/submit";
-      const response = await axios.post(URL, {
-        userId,
-        sessionId,
-        section: sectionName,
-        answers: storedAnswers,
-        timeTaken: parseInt(timeTaken),
-      });
-      console.log(response);
-      if(response.status === 200) {
-        localStorage.removeItem("answers");
-        localStorage.removeItem("sectionTimer");
-        localStorage.removeItem("currentSection");
+    if(confirm("Are you sure you want to submit the section?")){
+      try {
+        const URL = import.meta.env.VITE_REACT_API_URL + "/api/submit";
+        const response = await axios.post(URL, {
+          userId,
+          sessionId,
+          section: sectionName,
+          answers: storedAnswers,
+          timeTaken: parseInt(timeTaken),
+        });
+        console.log(response);
+        if (response.status === 200) {
+          localStorage.removeItem("answers");
+          localStorage.removeItem("sectionTimer");
+          localStorage.removeItem("currentSection");
 
-        if (sectionName === "D") {
-          window.location.href = "/test/finish";
-        } else {
-          window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
+          alert("Section submitted successfully!"); 
+
+          if (sectionName === "D") {
+            window.location.href = "/test/finish";
+          } else {
+            window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
+          }
         }
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
     }
   };
 
   return (
-    <div className="flex bg-gray-100 h-screen">
-      <div className="w-1/3 h-full">
-        <TestNav onSubmit={submitSection} onExit={exitTest} />
+    <div className="bg-gray-100 h-screen flex flex-col">
+      <div className="h-20 w-full bg-white flex items-center justify-between px-10 border-gray-200 border-b">
+        <div className="text-4xl font-bold h-12 flex justify-center items-center gap-3">
+          <img src="/logo.png" alt="Logo" className="h-full" />
+          <h1>shiksha</h1>
+        </div>
+        <button
+          onClick={() => exitTest()}
+          className='bg-red-500 hover:bg-red-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit'
+        >
+          Exit Test
+        </button>
       </div>
-      <div className="w-2/3 h-full text-gray-900 p-10 overflow-y-scroll">
-        {questionNumber !== null && <Question qnumber={questionNumber} />}
+      <div className="w-full h-full flex">
+        <div className="w-1/3 min-w-xs h-full">
+          <TestNav onSubmit={submitSection} />
+        </div>
+        <div className="w-2/3 h-full text-gray-900 p-4 overflow-y-scroll">
+          {questionNumber !== null && <Question qnumber={questionNumber} />}
+        </div>
       </div>
     </div>
   );

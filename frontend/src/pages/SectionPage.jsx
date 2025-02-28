@@ -21,7 +21,7 @@ const sectionImage = {
 const SectionPage = () => {
   const { sectionName } = useParams();
   function goBack() {
-    window.history.back();
+    window.location.href = "/test";
   }
   function startQuiz() {
     localStorage.setItem("currentSection", sectionName);

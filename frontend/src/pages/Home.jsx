@@ -14,7 +14,7 @@ const Home = () => {
                         <p className='md:text-7xl text-6xl text-white'><span className='line-through text-red-500'>No</span> More <span className='line-through text-red-500'>Empty</span> Classrooms !</p>
                     </div>
                     <div className='bg-black/20 backdrop-invert-75 md:w-1/2 w-full flex flex-col justify-center items-center md:p-5 p-2 rounded-md'>
-                        <p className='md:text-xl text-lg  text-white'>Know your strengths and weaknesses with a single test. Register for the test know and join us in the journey of revolution.</p>
+                        <p className='md:text-xl text-lg  text-white'>Know your strengths and weaknesses with a single test. Register for the test now and join us in the mission.</p>
                         <div className='mt-5 w-full flex h-fit justify-center items-center'>
                             <RegButton priText={`Register now`} secText ={`- it's free`} />
                         </div>
