@@ -8,7 +8,7 @@ const logout = async() =>{
         return;
     }
     const URL = import.meta.env.VITE_REACT_API_URL + "/api/logout";
-    console.log(sessionId);   
+    // console.log(sessionId);   
     try {
         const response = await axios.post(URL, null, {
             params: {
@@ -16,12 +16,14 @@ const logout = async() =>{
             }
         });
         alert(response.data.message);
-        localStorage.removeItem("sessionId");
-        localStorage.removeItem("userId");
-        localStorage.removeItem("answers");
-        localStorage.sessionId("sectionTimer", 0);
-        localStorage.removeItem("currentSection");
-        window.location.href = "/";
+        if(response.status === 200){
+            localStorage.removeItem("answers");
+            localStorage.removeItem("sectionTimer");
+            localStorage.removeItem("sessionId");
+            localStorage.removeItem("userId");
+            localStorage.removeItem("currentSection");
+            window.location.href = "/";
+        }
     } catch (err) {
         console.log(err);
         alert("An error occurred while logging out. Please try again.");

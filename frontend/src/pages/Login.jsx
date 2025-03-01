@@ -22,7 +22,7 @@ const Login = () => {
         let URL = import.meta.env.VITE_REACT_API_URL + "/api/login";
         
         let data = {
-            "name": e.target["full-name"].value,
+            "name": e.target["full-name"].value.trim(),
             "mobile": parseInt(e.target["mobile"].value),
             "date_of_birth": e.target["dob"].value
         }

@@ -17,10 +17,10 @@ const Contact = () => {
         e.preventDefault();
         const URL = import.meta.env.VITE_API_URL + "/feedback";
         const data = {
-            name: e.target["full-name"].value,
-            mobile: e.target["mobile"].value,
-            email: e.target["email"].value,
-            query: e.target["query"].value
+            name: e.target["full-name"].value.trim(),
+            mobile: parseInt(e.target["mobile"].value),
+            email: e.target["email"].value.trim(),
+            query: e.target["query"].value.trim()
         };
         if (!validate(data))return;
         try {
