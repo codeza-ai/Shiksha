@@ -4,11 +4,14 @@ import Submit from "../components/buttons/Submit";
 import axios from "axios";
 const Contact = () => {
     function validate(data){
-        if(data.name.length < 3){
+        if ((data["name"]).length < 3) {
             alert("Name should be atleast 3 characters long");
             return false;
-        }else if(data.mobile.length !== 10){
-            alert("Invalid mobile number");
+        } else if (data["mobile"].toString().length !== 10) {
+            alert("Mobile number should be 10 digits long");
+            return false;
+        } else if (!data["email"].includes("@") || !data["email"].includes(".")) {
+            alert("Invalid email");
             return false;
         }
         return true;
