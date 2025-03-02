@@ -30,6 +30,7 @@ const Login = () => {
         try {
             const res = await axios.post(URL, data);
             const response = res.data;
+            console.log(response);
             //Store userId and sessionId in local storage
             if(response.test_completed){
                 alert("You have already completed the test. You can't take the test again.");
@@ -40,6 +41,7 @@ const Login = () => {
             if(res.status === 200){
                 localStorage.setItem("userId", response.user.user_id);
                 localStorage.setItem("sessionId", response.session_id);
+                localStorage.setItem("currentSection", response.current_section);
                 alert(response.message);
                 window.location.href = "/test";
             }

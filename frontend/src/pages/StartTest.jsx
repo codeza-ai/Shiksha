@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Logo from "../components/Logo";
 const StartTest = ()=> {
+    function startQuiz() {
+        const sectionName = localStorage.getItem("currentSection");
+        window.location.href = `/test/section/${sectionName}`;
+    }
     useEffect(()=>{
-        localStorage.removeItem("currentSection");
         localStorage.removeItem("answers");
     },[]);
 
@@ -27,7 +30,7 @@ const StartTest = ()=> {
             </div>
             <div className="w-full flex justify-evenly items-center p-4">
                     <Link to={"/"} className="bg-gray-800 hover:bg-black hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit">Go Back</Link>
-                    <Link to={"/test/section/A"} className="bg-blue-500 hover:bg-blue-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit">Start Test</Link>
+                    <button onClick={()=> startQuiz()} className="bg-linear-to-br/hsl from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit">Start Test</button>
             </div>
         </div>
     </div>);

@@ -15,7 +15,7 @@ const Contact = () => {
     }
     async function handleSubmit(e) {
         e.preventDefault();
-        const URL = import.meta.env.VITE_API_URL + "/feedback";
+        const URL = import.meta.env.VITE_API_URL + "/api/feedback";
         const data = {
             name: e.target["full-name"].value.trim(),
             mobile: parseInt(e.target["mobile"].value),

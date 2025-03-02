@@ -24,21 +24,21 @@ const About = ()=>{
                 </p>
             </div>  
             <div className="md:w-3/4 w-full p-4 gap-4 md:gap-8 md:text-xl text-lg mt-10 border-2 border-gray-200 md:flex-row flex flex-col items-center md:justify-evenly bg-white rounded-lg mb-7">
-                <div className="flex flex-col items-center justify-center gap-3 h-fit w-fit">
+                <div className="appear-left flex flex-col items-center justify-center gap-3 h-fit w-fit">
                     <div className="w-2xs h-2xs bg-linear-to-r/hsl from-blue-500 to-blue-300 rounded-full overflow-hidden ">
                         <img src="Darshan.png" alt="Darshan Odedara" className="w-xs"/>
                     </div>
                     <h1 className="font-bold md:text-2xl text-xl">Darshan Odedara</h1>
                     <h1 className="text-blue-500 md:text-2xl text-xl">Frontend Development</h1>
                 </div>
-                <div className="flex flex-col items-center justify-center p-2 gap-3 h-fit w-fit">
+                <div className="appear-left flex flex-col items-center justify-center gap-3 h-fit w-fit">
                     <div className="w-2xs h-2xs bg-linear-to-r/hsl from-blue-500 to-blue-300 rounded-full overflow-hidden ">
                         <img src="Steve.png" alt="Steve Joseph" className="w-xs" />
                     </div>
                     <h1 className="font-bold md:text-2xl text-xl">Steve Joseph</h1>
                     <h1 className="text-blue-500 md:text-2xl text-xl">Backend Development</h1>
                 </div>
-                <div className="flex flex-col items-center justify-center p-2 gap-3 h-fit w-fit">
+                <div className="appear-left flex flex-col items-center justify-center gap-3 h-fit w-fit">
                     <div className="w-2xs h-2xs bg-linear-to-r/hsl from-blue-500 to-blue-300 rounded-full overflow-hidden ">
                         <img src="Arjun.png" alt="Arjun Avittathur" className="w-xs" />
                     </div>

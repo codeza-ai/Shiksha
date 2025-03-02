@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import checkSection from "../util/section";
+// import checkSection from "../util/section";
 import checkSession from "../util/session";
 import logout from "../util/logout";
 
@@ -24,25 +24,31 @@ const SectionPage = () => {
     window.location.href = "/test";
   }
   function startQuiz() {
-    localStorage.setItem("currentSection", sectionName);
+    const sectionName = localStorage.getItem("currentSection");
+    localStorage.setItem("sectionTimer", 0);
+    // localStorage.setItem("sectionSubmitted", "false");
     window.location.href = `/test/section/${sectionName}/question/1`;
   }
 
   useEffect(() => {
     async function check() {
+      const curr = localStorage.getItem("currentSection");
+      if (!curr || curr !== sectionName) {
+        window.history.back();
+      }
       const session = await checkSession();
       if (!session) {
         await logout();
         alert("Session expired. Please login again.");
       }
-      const section = await checkSection(sectionName);
-      if (section) {
-        if (sectionName != "D") {
-          window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
-        } else {
-          window.location.href = "/test/finish";
-        }
-      }
+      // const section = await checkSection();
+      // if (section) {
+      //   if (sectionName != "D") {
+      //     window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
+      //   } else {
+      //     window.location.href = "/test/finish";
+      //   }
+      // }
     }
 
     if (sectionName > "D") {
@@ -67,7 +73,7 @@ const SectionPage = () => {
             Go Back
           </button>
           <button
-            className="bg-blue-500 hover:bg-blue-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit"
+            className="bg-linear-to-br/hsl from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-fit"
             onClick={() => startQuiz()}
           >
             Start Quiz

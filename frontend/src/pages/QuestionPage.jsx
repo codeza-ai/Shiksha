@@ -75,16 +75,20 @@ const QuestionPage = () => {
         });
         console.log(response);
         if (response.status === 200) {
+          // This will stop the timer, and avoid it from reseting
+          localStorage.setItem("sectionSubmitted", "true");
+
           localStorage.removeItem("answers");
           localStorage.removeItem("sectionTimer");
           localStorage.removeItem("currentSection");
-
+          
           alert("Section submitted successfully!"); 
-
-          if (sectionName === "D") {
-            window.location.href = "/test/finish";
+          
+          if (sectionName !== "D") {
+            localStorage.setItem("currentSection", response.data.current_section);
+            window.location.href = `/test/section/${response.data.current_section}`;
           } else {
-            window.location.href = `/test/section/${String.fromCharCode(sectionName.charCodeAt(0) + 1)}`;
+            window.location.href = "/test/finish";
           }
         }
       } catch (err) {
@@ -113,7 +117,7 @@ const QuestionPage = () => {
         </div>
         <div className="w-2/3 h-full text-gray-900 p-4 overflow-y-scroll">
           {questionNumber !== null && <Question qnumber={questionNumber} />}
-        </div>
+        </div> 
       </div>
     </div>
   );

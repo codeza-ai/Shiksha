@@ -8,7 +8,7 @@ const RoadMap = () => {
                     </div>
                     <div className="md:w-full bg-gray-400 md:h-0.5 h-full w-0.5"></div>
                 </div>
-                <div className="mt-3 md:pe-8">
+                <div className="mt-3 md:pe-8 appear-right">
                     <h3 className="text-2xl mb-3 font-semibold ">Register</h3>
                     <p className="text-lg font-normal text-gray-300 ">Go to the Register page and register for the test by filling out some basic details.</p>
                 </div>
@@ -20,7 +20,7 @@ const RoadMap = () => {
                     </div>
                     <div className="md:w-full bg-gray-400 md:h-0.5 h-full w-0.5"></div>
                 </div>
-                <div className="mt-3 md:pe-8">
+                <div className="mt-3 md:pe-8 appear-right">
                     <h3 className="text-2xl mb-3 font-semibold ">Login</h3>
                     <p className="text-lg font-normal text-gray-300 ">Go to the Login page, now Login with the same credentials that you registered with.</p>
                 </div>
@@ -32,7 +32,7 @@ const RoadMap = () => {
                     </div>
                     <div className="md:w-full bg-gray-400 md:h-0.5 h-full w-0.5"></div>
                 </div>
-                <div className="mt-3 md:pe-8">
+                <div className="mt-3 md:pe-8 appear-right">
                     <h3 className="text-2xl mb-3 font-semibold ">Test yourself</h3>
                     <p className="text-lg font-normal text-gray-300 ">Give the test that is divided into 4 sections. Try to complete the test within 2 hours.</p>
                 </div>
@@ -44,7 +44,7 @@ const RoadMap = () => {
                     </div>
                     <div className="md:w-full bg-none md:h-0.5 h-full w-0.5"></div>
                 </div>
-                <div className="mt-3 md:pe-8">
+                <div className="mt-3 md:pe-8 appear-right">
                     <h3 className="text-2xl mb-3 font-semibold ">Wait for the results</h3>
                     <p className="text-lg font-normal text-gray-300 ">Leave the rest on us, you will soon get the results once you give the test.</p>
                 </div>

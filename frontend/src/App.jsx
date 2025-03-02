@@ -15,7 +15,6 @@ import { useLocation } from 'react-router-dom'
 function enforceFullScreen() {
   if (document.fullscreenEnabled && !document.fullscreenElement) {
     document.documentElement.requestFullscreen().catch(err => {
-      alert("Please allow full-screen mode to attempt the test.");
       console.log(err);
     });
   }
@@ -30,20 +29,20 @@ function App() {
       alert("This test can only be taken on a computer.");
       window.location.href = "/";
     }
-    // Enforce full-screen mode
-    if (location.pathname.startsWith("/test")) {
-      enforceFullScreen();
-    }
 
     // Detect exit from full-screen
     const handleFullscreenChange = () => {
       if (!document.fullscreenElement) {
-        alert("You must stay in full-screen mode to continue the test.");
         enforceFullScreen();
       }
     };
 
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    // Enforce full-screen mode
+    if (location.pathname.startsWith("/test")) {
+      enforceFullScreen();
+      document.addEventListener("fullscreenchange", handleFullscreenChange);
+    }
+
 
     return () => {
       document.removeEventListener("fullscreenchange", handleFullscreenChange);

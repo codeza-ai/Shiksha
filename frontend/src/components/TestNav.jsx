@@ -60,7 +60,7 @@ const TestNav = ({ onSubmit }) => {
 
         <button
           onClick={() => onSubmit(timeTaken)}
-          className="bg-blue-500 hover:bg-blue-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-full"
+          className="bg-linear-to-br/hsl from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-full"
         >
           Submit Section
         </button>
