@@ -11,6 +11,7 @@ const QuestionPage = () => {
   const { sectionName, qNumber } = useParams();
   const [questionNumber, setQuestionNumber] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useEffect(() => {
     async function check() {
@@ -49,7 +50,14 @@ const QuestionPage = () => {
   async function exitTest() {
     // Prompt is user actually wants to exit test
     if (window.confirm("Are you sure you want to exit the test?")) {
-      await logout();
+      setIsLoggingOut(true);
+      try{
+        await logout();
+      }catch(err){
+        console.log(err);
+      }finally{
+        setIsLoggingOut(false);
+      }
     }
   }
 
@@ -110,9 +118,31 @@ const QuestionPage = () => {
           <h1>shiksha</h1>
         </div>
         <button
-          onClick={() => exitTest()}
-          className='bg-red-500 hover:bg-red-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit'
+          onClick={() =>exitTest()}
+          className='flex justify-center items-center gap-2 bg-red-500 hover:bg-red-700 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit'
         >
+          {isLoggingOut && (
+            <svg
+              className="animate-spin h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+          )}
           Exit Test
         </button>
       </div>
