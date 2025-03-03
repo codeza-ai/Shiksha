@@ -5,8 +5,10 @@ import checkSession from "../util/session";
 import logout from "../util/logout";
 import Logo from "../components/Logo";
 import Submit from "../components/buttons/Submit";
-
+import { useState } from "react";
 const Login = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const validate = (data) => {
         if ((data["name"]).length < 3) {
             alert("Name should be atleast 3 characters long");
@@ -19,6 +21,7 @@ const Login = () => {
     };
     async function handleSubmit(e){
         e.preventDefault();
+        setIsSubmitting(true);
         let URL = import.meta.env.VITE_REACT_API_URL + "/api/login";
         
         let data = {
@@ -26,7 +29,10 @@ const Login = () => {
             "mobile": parseInt(e.target["mobile"].value),
             "date_of_birth": e.target["dob"].value
         }
-        if(!validate(data)) return;
+        if(!validate(data)){
+            setIsSubmitting(false);
+            return;
+        }
         try {
             const res = await axios.post(URL, data);
             const response = res.data;
@@ -48,6 +54,8 @@ const Login = () => {
         }catch(err){
             alert(err.response.data.detail);
             console.log(err);
+        }finally{
+            setIsSubmitting(false);
         }
     }
 
@@ -84,7 +92,7 @@ const Login = () => {
 
                     </div>
                     <div className="flex justify-center mt-4">
-                        <Submit text="Login"/>
+                        <Submit text="Login" isLoading={isSubmitting} />
                     </div>
                 </form>
             </div>

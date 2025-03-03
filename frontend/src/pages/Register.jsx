@@ -1,11 +1,12 @@
 import {Link} from "react-router-dom";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import checkSession from "../util/session";
 import Logo from "../components/Logo";
 import Submit from "../components/buttons/Submit";
 
 const Register = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const validate=(data)=>{
         if((data["name"]).length < 3){
             alert("Name should be atleast 3 characters long");
@@ -18,6 +19,7 @@ const Register = () => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
         let data = {
             "name": e.target["full-name"].value.trim(),
             "mobile": parseInt(e.target["mobile"].value),
@@ -26,7 +28,8 @@ const Register = () => {
             "standard": parseInt(e.target["class"].value),
             "state": e.target["state"].value
         };
-        if(!validate(data)){
+        if (!validate(data)) {
+            setIsSubmitting(false);
             return;
         }
         let URL = import.meta.env.VITE_REACT_API_URL + "/api/signup";
@@ -39,6 +42,8 @@ const Register = () => {
             }
         }catch(err){
             console.log(err);
+        }finally{
+            setIsSubmitting(false);
         }
     }
     
@@ -124,7 +129,7 @@ const Register = () => {
                         </select>
                     </div>
                     <div className="flex justify-center mt-4">
-                        <Submit text="Register"/>
+                        <Submit text="Register" isLoading={isSubmitting}/>
                     </div>
                 </form>
             </div>

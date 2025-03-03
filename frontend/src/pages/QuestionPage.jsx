@@ -10,6 +10,7 @@ import questions from "../data/questions"; // Import to check valid question num
 const QuestionPage = () => {
   const { sectionName, qNumber } = useParams();
   const [questionNumber, setQuestionNumber] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function check() {
@@ -53,10 +54,12 @@ const QuestionPage = () => {
   }
 
   const submitSection = async (timeTaken) => {
+    setIsLoading(true);
     const storedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
     const answeredQuestions = new Set(storedAnswers.map((answer) => answer.qNumber));
     if (answeredQuestions.size !== 10) {
       alert("Please answer all questions before submitting.");
+      setIsLoading(false);
       return;
     }
 
@@ -93,6 +96,8 @@ const QuestionPage = () => {
         }
       } catch (err) {
         console.log(err);
+      }finally{
+        setIsLoading(false);
       }
     }
   };
@@ -113,7 +118,7 @@ const QuestionPage = () => {
       </div>
       <div className="w-full h-full flex">
         <div className="w-1/3 min-w-xs h-full">
-          <TestNav onSubmit={submitSection} />
+          <TestNav onSubmit={submitSection} isLoading={isLoading} />
         </div>
         <div className="w-2/3 h-full text-gray-900 p-4 overflow-y-scroll">
           {questionNumber !== null && <Question qnumber={questionNumber} />}
