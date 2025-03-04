@@ -23,7 +23,7 @@ const Footer = ()=>{
                 </div>
                 <div className="md:w-1/2 w-full flex flex-col justify-center items-center">
                     <div className='w-full p-5 flex items-center justify-center gap-4 text-4xl font-bold'>
-                        <img src="./logo.png" className="w-14" alt="Logo" />
+                        <img src="./logo.png" className="h-12" alt="Logo" />
                         <h1>shiksha</h1>
                     </div>
                     <div>

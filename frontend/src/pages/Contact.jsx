@@ -41,15 +41,13 @@ const Contact = () => {
     return (
         <>
             <Header />
-            <div className="h-20 bg-white">
-            </div>
-            <main className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
+            <main className="flex flex-col items-center bg-gray-100 p-6 pt-26">
                 <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
                     <form
                         onSubmit={handleSubmit}
                         className="space-y-4 md:text-lg text-md text-black font-medium">
                         <h1 className="text-2xl font-bold text-center mb-3">Contact Us</h1>
-                        <h1 className="text-2xl font-bold text-center mb-3">Or Give Feedback</h1>
+                        <h1 className="text-2xl font-bold text-center mb-3">Or Give A Feedback</h1>
                         <p className="text-red-500 text-center mb-3">{`(All the fields are mandatory)`}</p>
                         <hr />
                         <div className="flex flex-col space-y-2">

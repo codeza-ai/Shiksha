@@ -1,16 +1,72 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import Timer from './Timer';
-import PropTypes from 'prop-types';
+import axios from 'axios';
 
-const TestNav = ({ onSubmit, isLoading }) => {
+const TestNav = () => {
   const { sectionName, qNumber } = useParams();
   const navigate = useNavigate();
   const totalQuestions = 10;
   const [timeTaken, setTimeTaken] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const submitSection = async () => {
+      setIsLoading(true);
+      const storedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
+      const answeredQuestions = new Set(storedAnswers.map((answer) => answer.qNumber));
+      if (answeredQuestions.size !== 10) {
+        alert("Please answer all questions before submitting.");
+        setIsLoading(false);
+        return;
+      }
+  
+      const userId = localStorage.getItem("userId");
+      const sessionId = localStorage.getItem("sessionId");
+  
+      if(confirm("Are you sure you want to submit the section?")){
+        try {
+          const URL = import.meta.env.VITE_REACT_API_URL + "/api/submit";
+          const response = await axios.post(URL, {
+            userId,
+            sessionId,
+            section: sectionName,
+            answers: storedAnswers,
+            timeTaken: parseInt(timeTaken),
+          });
+          console.log(response);
+          if (response.status === 200) {
+            // This will stop the timer, and avoid it from reseting
+            localStorage.setItem("sectionSubmitted", "true");
+  
+            localStorage.removeItem("answers");
+            localStorage.removeItem("sectionTimer");
+            localStorage.removeItem("currentSection");
+            
+            alert("Section submitted successfully!"); 
+            
+            if (sectionName !== "D") {
+              localStorage.setItem("currentSection", response.data.current_section);
+              window.location.href = `/test/section/${response.data.current_section}`;
+            } else {
+              window.location.href = "/test/finish";
+            }
+          }
+        } catch (err) {
+          console.log(err);
+        }finally{
+          setIsLoading(false);
+        }
+      }
+    };
 
   const handleQuestionClick = (questionNum) => {
     navigate(`/test/section/${sectionName}/question/${questionNum}`);
+    // Set the question as visited
+    const visited = JSON.parse(localStorage.getItem("visited")) || [];
+    if (!visited.includes(questionNum)) {
+      visited.push(questionNum);
+      localStorage.setItem("visited", JSON.stringify(visited));
+    }
   };
 
   return (
@@ -84,7 +140,7 @@ const TestNav = ({ onSubmit, isLoading }) => {
         </div>
 
         <button
-          onClick={() => onSubmit(timeTaken)}
+          onClick={() => submitSection()}
           className="flex justify-center gap-2 items-center bg-linear-to-br/hsl from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 hover:scale-102 delay-75 text-lg font-semibold text-white p-6 pt-3 pb-3 rounded-md h-fit w-full"
         >
           {isLoading && (
@@ -114,10 +170,6 @@ const TestNav = ({ onSubmit, isLoading }) => {
       </div>
     </div>
   );
-};
-TestNav.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool
 };
 
 export default TestNav;

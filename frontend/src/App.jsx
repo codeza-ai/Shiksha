@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import Home from './pages/Home'
 import StartTest from "./pages/StartTest";
 import SectionPage from "./pages/SectionPage";
@@ -11,6 +12,7 @@ import NotFound from './pages/NotFound'
 import FinishTest from './pages/FinishTest'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import PageTransition from './components/PageTransition'
 
 function enforceFullScreen() {
   if (document.fullscreenEnabled && !document.fullscreenElement) {
@@ -50,20 +52,40 @@ function App() {
 
   }, [location.pathname]);
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={
+          <PageTransition>
+            <Home />
+          </PageTransition>
+        } />
+        <Route path="/register" element={
+          <PageTransition>
+            <Register />
+          </PageTransition>
+        } />
+        <Route path="/about" element={
+          <PageTransition>
+            <About />
+          </PageTransition>
+        } />
+        <Route path="/contact" element={
+          <PageTransition>
+            <Contact />
+          </PageTransition>
+        } />
+        <Route path="/login" element={
+          <PageTransition>
+            <Login />
+          </PageTransition>
+        } />
         <Route path="/test" element={<StartTest />} />
         <Route path="/test/section/:sectionName" element={<SectionPage />} />
         <Route path="/test/section/:sectionName/question/:qNumber" element={<QuestionPage />} />
         <Route path="/test/finish" element={<FinishTest/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </div>
+    </AnimatePresence>
   )
 }
 
