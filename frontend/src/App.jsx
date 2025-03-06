@@ -13,6 +13,7 @@ import FinishTest from './pages/FinishTest'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import PageTransition from './components/PageTransition'
+import ScrollToTop from './components/buttons/ScrollToTop'
 
 function enforceFullScreen() {
   if (document.fullscreenEnabled && !document.fullscreenElement) {
@@ -52,40 +53,43 @@ function App() {
 
   }, [location.pathname]);
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={
-          <PageTransition>
-            <Home />
-          </PageTransition>
-        } />
-        <Route path="/register" element={
-          <PageTransition>
-            <Register />
-          </PageTransition>
-        } />
-        <Route path="/about" element={
-          <PageTransition>
-            <About />
-          </PageTransition>
-        } />
-        <Route path="/contact" element={
-          <PageTransition>
-            <Contact />
-          </PageTransition>
-        } />
-        <Route path="/login" element={
-          <PageTransition>
-            <Login />
-          </PageTransition>
-        } />
-        <Route path="/test" element={<StartTest />} />
-        <Route path="/test/section/:sectionName" element={<SectionPage />} />
-        <Route path="/test/section/:sectionName/question/:qNumber" element={<QuestionPage />} />
-        <Route path="/test/finish" element={<FinishTest/>} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AnimatePresence>
+    <>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={
+            <PageTransition>
+              <Home />
+            </PageTransition>
+          } />
+          <Route path="/register" element={
+            <PageTransition>
+              <Register />
+            </PageTransition>
+          } />
+          <Route path="/about" element={
+            <PageTransition>
+              <About />
+            </PageTransition>
+          } />
+          <Route path="/contact" element={
+            <PageTransition>
+              <Contact />
+            </PageTransition>
+          } />
+          <Route path="/login" element={
+            <PageTransition>
+              <Login />
+            </PageTransition>
+          } />
+          <Route path="/test" element={<StartTest />} />
+          <Route path="/test/section/:sectionName" element={<SectionPage />} />
+          <Route path="/test/section/:sectionName/question/:qNumber" element={<QuestionPage />} />
+          <Route path="/test/finish" element={<FinishTest/>} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AnimatePresence>
+      {!location.pathname.startsWith("/test") && <ScrollToTop />}
+    </>
   )
 }
 

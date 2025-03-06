@@ -21,7 +21,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="header-animation z-10 fixed text-black md:px-20 px-4 py-3 w-full flex justify-between items-center bg-white h-20 border-b-1 border-gray-200">
+        <header className="header-animation bg-white/90 backdrop-blur-sm z-10 fixed text-black md:px-20 px-4 py-3 w-full flex justify-between items-center h-20 border-b-1 border-gray-200">
             <Logo/>
 
             {/* Mobile Menu Button */}
@@ -31,9 +31,9 @@ const Header = () => {
 
             {/* Navigation Menu */}
             <nav className={`md:flex text-xl absolute md:static top-20 left-0 w-full bg-white md:bg-transparent md:w-fit justify-center items-center flex-col md:flex-row shadow-lg md:shadow-none shadow-gray-500 ${menuOpen ? 'flex gap-2 p-4' : 'hidden'}`}>
-                <Link to="/" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500">Home</Link>
-                <Link to="/about" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500">About</Link>
-                <Link to="/contact" className="p-2 m-2 bg-white rounded-sm hover:text-blue-500">Contact Us</Link>
+                <Link to="/" className="p-2 m-2 rounded-sm hover:text-blue-500">Home</Link>
+                <Link to="/about" className="p-2 m-2 rounded-sm hover:text-blue-500">About</Link>
+                <Link to="/contact" className="p-2 m-2 rounded-sm hover:text-blue-500">Contact Us</Link>
                 {!loggedIn ? (
                     <div className='flex gap-4 justify-center items-center'>
                         <RegButton priText = {`Register`}/>

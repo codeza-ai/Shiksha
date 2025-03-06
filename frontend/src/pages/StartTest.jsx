@@ -11,7 +11,7 @@ const StartTest = ()=> {
     },[]);
 
     return (
-    <div className="w-full bg-gray-100 pt-10 pb-10 text-gray-900 flex flex-col justify-center items-center">
+    <div className="w-full min-h-screen bg-gray-100 pt-10 pb-10 text-gray-900 flex flex-col justify-center items-center">
         <div className="mb-8 ">
             <Logo/>
         </div>
