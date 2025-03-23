@@ -70,8 +70,8 @@ const TestNav = () => {
   };
 
   return (
-    <div className="bg-white p-4 mx-auto min-w-xs max-w-sm text-center w-full h-full flex flex-col">
-      <h3 className="text-4xl font-bold text-black mt-10 mb-6">Section {sectionName}</h3>
+    <div className="bg-white p-4 mx-auto min-w-xs md:max-w-sm max-w-full text-center w-full md:h-full h-fit flex flex-col">
+      <h3 className="md:block hidden text-4xl font-bold text-black mt-10 mb-6">Section {sectionName}</h3>
 
       {/* Timer Display */}
       <div className="w-full flex justify-center items-center p-5">

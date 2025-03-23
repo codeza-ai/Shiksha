@@ -10,48 +10,14 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import FinishTest from './pages/FinishTest'
-import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import PageTransition from './components/PageTransition'
 import ScrollToTop from './components/buttons/ScrollToTop'
 
-function enforceFullScreen() {
-  if (document.fullscreenEnabled && !document.fullscreenElement) {
-    document.documentElement.requestFullscreen().catch(err => {
-      console.log(err);
-    });
-  }
-}
 
 function App() {
   const location = useLocation();
 
-
-  useEffect(() => {
-    if (location.pathname.startsWith("/test")&& window.innerWidth < 768) {
-      alert("This test can only be taken on a computer.");
-      window.location.href = "/";
-    }
-
-    // Detect exit from full-screen
-    const handleFullscreenChange = () => {
-      if (!document.fullscreenElement) {
-        enforceFullScreen();
-      }
-    };
-
-    // Enforce full-screen mode
-    if (location.pathname.startsWith("/test")) {
-      enforceFullScreen();
-      document.addEventListener("fullscreenchange", handleFullscreenChange);
-    }
-
-
-    return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
-    };
-
-  }, [location.pathname]);
   return (
     <>
       <AnimatePresence mode="wait">

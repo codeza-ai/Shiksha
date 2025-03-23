@@ -11,11 +11,11 @@ const StartTest = ()=> {
     },[]);
 
     return (
-    <div className="w-full min-h-screen bg-gray-100 pt-10 pb-10 text-gray-900 flex flex-col justify-center items-center">
+    <div className="w-full min-h-screen bg-gray-100 px-4 h-fit text-gray-900 flex flex-col justify-center items-center">
         <div className="mb-8 ">
             <Logo/>
         </div>
-        <div id="instructions" className="bg-white p-4 rounded-lg shadow-lg text-center w-1/2 min-w-lg h-fit">
+        <div id="instructions" className="bg-white p-4 rounded-lg shadow-lg text-center md:w-1/2 w-full h-fit">
             <div className="w-full p-3">
                 <h2 className="text-4xl text-red-500">Instructions:</h2>
             </div>

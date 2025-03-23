@@ -57,10 +57,14 @@ const SectionPage = () => {
     check();
   }, [sectionName]);
   return (
-    <div className="w-full h-screen bg-gray-100 flex justify-evenly items-center">
-      <div className="w-1/3 bg-white p-5 gap-10 h-2/3 flex flex-col justify-around rounded-2xl text-center">
+    <div className="w-full h-screen bg-gray-100 flex justify-evenly items-center p-4">
+      <div className="md:w-1/3 w-full bg-white p-5 gap-4 h-2/3 flex flex-col justify-around rounded-2xl text-center">
+        <div to="/" className="text-4xl font-bold h-12 md:hidden flex justify-center items-center gap-3">
+          <img src="/logo.png" alt="Logo" className="h-full" />
+          <h1>shiksha</h1>
+        </div>
         <div>
-          <div className="w-full mt-5">
+          <div className="w-full md:mt-5 mt-2">
             <h1 className="text-4xl text-black">Section - {sectionName}</h1>
           </div>
           <div className="w-full mt-8">{SectionPageInfo[sectionName]}</div>
@@ -80,7 +84,7 @@ const SectionPage = () => {
           </button>
         </div>
       </div>
-      <div className="w-1/3 h-2/3 flex justify-center items-center">
+      <div className="w-1/3 h-2/3 md:flex hidden justify-center items-center">
         <img
           src={sectionImage[sectionName]}
           alt="Section Image"

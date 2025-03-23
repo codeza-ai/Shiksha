@@ -61,8 +61,8 @@ const QuestionPage = () => {
 
 
   return (
-    <div className="bg-gray-100 h-screen flex flex-col">
-      <div className="h-20 w-full bg-white flex items-center justify-between px-10 border-gray-200 border-b">
+    <div className="bg-gray-100 h-fit flex flex-col">
+      <div className="h-20 w-full bg-white flex items-center justify-between md:px-10 px-4 border-gray-200 border-b">
         <div className="text-4xl font-bold h-12 flex justify-center items-center gap-3">
           <img src="/logo.png" alt="Logo" className="h-full" />
           <h1>shiksha</h1>
@@ -96,11 +96,11 @@ const QuestionPage = () => {
           Exit Test
         </button>
       </div>
-      <div className="w-full h-full flex">
-        <div className="w-1/3 min-w-xs h-full">
+      <div className="w-full h-fit flex md:flex-row flex-col-reverse">
+        <div className="md:w-1/3 w-full min-w-xs md:h-screen h-fit">
           <TestNav />
         </div>
-        <div className="w-2/3 h-full text-gray-900 p-4 overflow-y-scroll">
+        <div className="md:w-2/3 w-full md:h-full max-h-100 text-gray-900 md:p-4 p-2 overflow-y-scroll">
           {questionNumber !== null && <Question qnumber={questionNumber} />}
         </div> 
       </div>

@@ -51,7 +51,7 @@ const Question = ({ qnumber }) => {
   }
 
   return (
-    <div className="p-10 w-full bg-white rounded-md text-2xl">
+    <div className="md:p-10 p-4 w-full bg-white rounded-md text-2xl">
       <div id="question" className="mb-10 flex flex-col gap-2">
         <div className="flex flex-row">
           <div className="font-bold">Q{qnumber}:</div>
