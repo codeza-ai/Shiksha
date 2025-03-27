@@ -34,7 +34,7 @@ const SectionPage = () => {
     async function check() {
       const curr = localStorage.getItem("currentSection");
       if (!curr || curr !== sectionName) {
-        window.history.back();
+        window.location.href = "/test";
       }
       const session = await checkSession();
       if (!session) {
